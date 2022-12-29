@@ -4,6 +4,6 @@
 
 @section('content')
     
-    <p class="abc">code vao day</p>
+    <p class="abc">alodkjaskly</p>
 
 @endsection
