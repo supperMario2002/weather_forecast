@@ -3,12 +3,6 @@
 @section('name', 'Trang chủ')
 
 @section('content')
-<<<<<<< HEAD
-    
-    <p class="abc">alodkjaskly</p>
-=======
->>>>>>> main
-
 <section class="vh-100" style="background-color: #f5f6f7;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
