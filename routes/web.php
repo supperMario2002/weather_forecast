@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/news', [NewsController::class, 'index'])->name('news');
+Route::get('/news-detail', [NewsDetailController::class, 'index'])->name('news-detail');
