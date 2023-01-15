@@ -32,7 +32,7 @@
 
         <div class="hours-div">
             <h2>Hourly</h2>
-            <div class="weather-sild1 owl-carousel owl-theme">
+            <div class="weather-sild1  ">
                 <div class="live-weather text-center">
                     <h5>Now</h5>
                     <div class="partly_cloudy">
@@ -119,7 +119,7 @@
                         </a>
                     </div>
 
-                    <div class="ps-sild owl-carousel owl-theme">
+                    <div class="ps-sild  ">
                         <div class="items text-center">
                             <div class="content-part">
                                 <h4>New York</h4>
@@ -723,7 +723,7 @@
             <div class="row g-lg-5">
                 <div class="col-lg-8">
                     <h1>Forecast Videos</h1>
-                    <div class="best-sl-m owl-carousel owl-theme">
+                    <div class="best-sl-m  ">
                         <div class="comon-part-video">
                             <a href="#" class="btn p-0">
                                 <figure>
@@ -848,7 +848,7 @@
                 </a>
             </div>
 
-            <div class="best-sl-m2 owl-carousel owl-theme mt-4">
+            <div class="best-sl-m2   mt-4">
                 <div class="comon-part-video">
                     <a href="#" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <figure>
