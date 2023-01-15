@@ -7,10 +7,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="news.html">News</a>
+            <a class="nav-link" href="{{route('news')}}">News</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="map.html">Map</a>
