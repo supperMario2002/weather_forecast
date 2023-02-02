@@ -7,91 +7,63 @@
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 top-part-banner1">
             <div class="col">
-                <div class="partly_cloudy">
-                    <div class="partly_cloudy__sun"></div>
-                    <div class="partly_cloudy__cloud"></div>
-                </div>
-                <h1 class="mb-2">34 <sup>0 </sup></h1>
-                <h2>
-                    <span> 30 <sup>0</sup> </span> / <span> 20 <sup>0</sup> </span>
-                </h2>
+                <h3>
+                    <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}
+                    <span class="d-block">Thứ {{$currentDate->dayOfWeek}}, {{$currentDate->format('d-m-Y')}}</span>
+                </h3>
+                <h1 class="mb-2">{{ceil($dataWeatherForcast[1]['main']['temp'])}}°C </h1>
+                {{-- <img src="http://openweathermap.org/img/w/{{$dataWeatherForcast[1]['weather'][0]['icon']}}.png" alt=""> --}}
             </div>
             <div class="col">
                 <div class="date-m ms-lg-auto d-table">
-                    <h3>
-                        <i class="fas fa-map-marker-alt"></i> San Francisco
-                        <span class="d-block"> September 18, 2022</span>
-                    </h3>
+                    {{-- <h3>
+                        <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}
+                    <span class="d-block">{{$currentDate->toDateString()}}</span>
+                    </h3> --}}
                 </div>
 
-                <figure class="m-0">
-                    <img src="images/banne-img-right.png" alt="bnm" />
-                </figure>
+                {{-- <figure class="m-0">
+                    <img src="{{asset("images/img-location/hanoi1.jpg")}}" alt="bnm" />
+                </figure> --}}
             </div>
         </div>
 
         <div class="hours-div">
-            <h2>Hourly</h2>
-            <div class="weather-sild1  ">
-                <div class="live-weather text-center">
-                    <h5>Now</h5>
-                    <div class="partly_cloudy">
-                        <div class="partly_cloudy__sun"></div>
-                        <div class="partly_cloudy__cloud"></div>
+            <h2>Hàng giờ</h2>
+            <div class="weather-sild1 owl-carousel hourlyForecast">
+                @foreach($dataWeatherForcast as $key => $value)
+
+                <div class="hourly-cart">
+                    <div class="cart-date">
+                        Thứ {{$currentDate->dayOfWeek}}, {{date('H:i', strtotime($value["dt_txt"]))}}
                     </div>
-                    <h4>30 <sup>0</sup></h4>
+                    <div class="cart-condition">
+                        <div class="cart-condition-nav">
+                            <h4>{{ceil($value['main']['temp'])}}°C</h4>
+                            <img src="http://openweathermap.org/img/w/{{$value['weather'][0]['icon']}}.png" alt="">
+                        </div>
+                        <p>Cảm giác: {{$value['main']['feels_like']}}°C</p>
+                        <p>Trời có {{$value['weather'][0]['description']}}</p>
+
+                    </div>
+                    <ul class="cart-detals">
+                        <li class="bg-f1">
+                            <span class="name-att">Độ ẩm :</span> 
+                            <span class="val">{{$value['main']['humidity']}}%</span>
+                        </li>
+                        <li>
+                            <span>Gió :</span class="name-att"> 
+                            <span class="val">{{$value['wind']['speed']}}m/s</span>
+                            </li>
+                        <li class="bg-f1">
+                            <span class="name-att">Mây :</span> 
+                            <span class="val">{{$value['clouds']['all']}}%</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="live-weather text-center">
-                    <h5>11am</h5>
-                    <div class="partly_cloudy">
-                        <div class="partly_cloudy__sun"></div>
-                        <div class="partly_cloudy__cloud"></div>
-                    </div>
-                    <h4>31 <sup>0</sup></h4>
-                </div>
+                @endforeach
 
-                <div class="live-weather text-center">
-                    <h5>12pm</h5>
-                    <div class="partly_cloudy">
-                        <div class="partly_cloudy__sun"></div>
-                        <div class="partly_cloudy__cloud"></div>
-                    </div>
-                    <h4>32 <sup>0</sup></h4>
-                </div>
-
-                <div class="live-weather text-center">
-                    <h5>1pm</h5>
-                    <div class="rainy mx-auto">
-                        <div class="rainy__cloud"></div>
-                        <div class="rainy__rain"></div>
-                    </div>
-                    <h4>33 <sup>0</sup></h4>
-                </div>
-
-                <div class="live-weather text-center">
-                    <h5>2pm</h5>
-                    <div class="partly_cloudy">
-                        <div class="partly_cloudy__sun"></div>
-                        <div class="partly_cloudy__cloud"></div>
-                    </div>
-                    <h4>33 <sup>0</sup></h4>
-                </div>
-
-                <div class="live-weather text-center">
-                    <h5>3pm</h5>
-                    <div class="cloudy mx-auto"></div>
-                    <h4>33 <sup>0</sup></h4>
-                </div>
-
-                <div class="live-weather text-center">
-                    <h5>4pm</h5>
-                    <div class="partly_cloudy">
-                        <div class="partly_cloudy__sun"></div>
-                        <div class="partly_cloudy__cloud"></div>
-                    </div>
-                    <h4>33 <sup>0</sup></h4>
-                </div>
             </div>
         </div>
     </div>
@@ -101,25 +73,15 @@
     <div class="recent-search-div">
         <div class="container">
             <div class="row align-items-center g-lg-4">
-                <div class="col-lg-4">
-                    <h2>
-                        Provide Your
-                        <span class="d-block"> Search Weather </span>
-                    </h2>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem
-                    </p>
-                </div>
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5>Recent Place</h5>
-                        <a href="#" class="btn readmon">
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <h5>Thành phố</h5>
+                        {{-- <a href="#" class="btn readmon">
+                <i class="fas fa-arrow-right"></i>
+              </a> --}}
                     </div>
 
-                    <div class="ps-sild  ">
+                    <div class="ps-sild owl-carousel owl-theme">
                         <div class="items text-center">
                             <div class="content-part">
                                 <h4>New York</h4>
@@ -129,9 +91,6 @@
                             <figure>
                                 <img src="images/pexels-yuting-gao-1557547.jpg" alt="pnm" />
                             </figure>
-
-                            <div class="rain"></div>
-                            <div class="lightining"></div>
                         </div>
                         <div class="items sunny-div text-center">
                             <div class="content-part">
@@ -142,8 +101,6 @@
                             <figure>
                                 <img src="images/pexels-photo-2426546.jpg" alt="pnm" />
                             </figure>
-
-                            <div class="sunny"></div>
                         </div>
                         <div class="items text-center raing-div">
                             <div class="content-part">
@@ -154,9 +111,6 @@
                             <figure>
                                 <img src="images/pexels-marcin-gierbisz-1125212.jpg" alt="pnm" />
                             </figure>
-
-                            <div class="rain"></div>
-                            <div class="lightining"></div>
                         </div>
 
                         <div class="items text-center sunny-div">
@@ -647,7 +601,7 @@
     <div class="world-map-div">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <h1>World Weather Map</h1>
 
                     <div class="map-divn">
@@ -678,45 +632,149 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="col-lg-4 mt-5 mt-lg-0">
-                    <h1>Top Clity Weather</h1>
+    <div class="news-part1">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <h1>Weather News</h1>
+                <a href="#" class="btn readmon">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
-                    <a href="#" class="comon-fom-st">
+            <div class="best-sl-m2 owl-carousel owl-theme mt-4">
+                <div class="comon-part-video">
+                    <a href="#" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <figure>
-                            <img src="images/ind.jpg" alt="aus" />
+                            <img src="images/pexels-genaro-serv%c3%83%c2%adn-763398.html" alt="pn" />
                         </figure>
-                        Kolkata
-                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    <ul class="list-unstyled d-flex">
+                        <li>
+                            <a href="#"> <i class="fa fa-user-alt"></i> Author </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-week"></i> 20 June 2021
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="bg-titel mt-1">
+                        Sydney's coldest afternoon of the year
+                    </a>
+                    <p class="mt-1">
+                        It is a long established fact that a reader will be distracted
+                        by the readable content of a page when looking at its layout.
+                    </p>
+                </div>
 
-                    <a href="#" class="comon-fom-st">
+                <div class="comon-part-video">
+                    <a href="#" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <figure>
-                            <img src="images/brzil.jpg" alt="aus" />
+                            <img src="images/pexels-photo-1529360.jpg" alt="pn" />
                         </figure>
-                        Captown
-                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    <ul class="list-unstyled d-flex">
+                        <li>
+                            <a href="#"> <i class="fa fa-user-alt"></i> Author </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-week"></i> 20 June 2021
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="bg-titel mt-1">
+                        Weatherpulse Special - East Coast Lows
+                    </a>
+                    <p class="mt-1">
+                        It is a long established fact that a reader will be distracted
+                        by the readable content of a page when looking at its layout.
+                    </p>
+                </div>
 
-                    <a href="#" class="comon-fom-st">
+                <div class="comon-part-video">
+                    <a href="#" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <figure>
-                            <img src="images/indo.jpg" alt="aus" />
+                            <img src="images/pexels-photo-753619.jpg" alt="pn" />
                         </figure>
-                        Bali
-                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    <ul class="list-unstyled d-flex">
+                        <li>
+                            <a href="#"> <i class="fa fa-user-alt"></i> Author </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-week"></i> 20 June 2021
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="bg-titel mt-1">
+                        Weatherpulse Special - Climate Outlooks
+                    </a>
+                    <p class="mt-1">
+                        It is a long established fact that a reader will be distracted
+                        by the readable content of a page when looking at its layout.
+                    </p>
+                </div>
 
-                    <a href="#" class="comon-fom-st">
+                <div class="comon-part-video">
+                    <a href="#" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <figure>
-                            <img src="images/aus.jpg" alt="aus" />
+                            <img src="images/pexels-photo-9541875.webp" alt="pn" />
                         </figure>
-                        Melbourne
-                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    <ul class="list-unstyled d-flex">
+                        <li>
+                            <a href="#"> <i class="fa fa-user-alt"></i> Author </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-week"></i> 20 June 2021
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="bg-titel mt-1">
+                        Weatherpulse - Weekend severe weather
+                    </a>
+                    <p class="mt-1">
+                        It is a long established fact that a reader will be distracted
+                        by the readable content of a page when looking at its layout.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
+
 </section>
+
 @endsection
+@push('after-js')
+<script>
+    $('.owl-carousel').owlCarousel({
+        margin: 0
+        , nav: false
+        , loop: false
+        , dots: false
+        , autoWidth: true
+        , responsive: {
+            0: {
+                items: 1
+            }
+            , 600: {
+                items: 3
+            }
+            , 1000: {
+                items: 5
+            }
+        }
+    })
+
+</script>
+
+@endpush
 
