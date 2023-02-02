@@ -7,30 +7,26 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link" href="{{route('home')}}">Home</a>
+            <a class="nav-link" href="{{route('home')}}">Trang chủ</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('news')}}">News</a>
+            <a class="nav-link" href="{{route('news')}}">Tin tức</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('map')}}">Map</a>
+            <a class="nav-link" href="{{route('map')}}">Bản đồ</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="photo.html">Photo</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('contact')}}">Contact</a>
+            <a class="nav-link" href="{{route('contact')}}">Liên hệ</a>
         </li>
     </ul>
 </div>
 
 <div class="right-menu-sec col-lg-1">
     <ul class="list-unstyled d-flex m-0 align-items-center justify-content-end">
-        <li class="d-none d-md-block">
+        {{-- <li class="d-none d-md-block">
             <a data-bs-toggle="modal" data-bs-target="#loginModal" class="btn login-btn">
-                Login
+                Đăng nhập
             </a>
-        </li>
+        </li> --}}
     </ul>
 </div>
