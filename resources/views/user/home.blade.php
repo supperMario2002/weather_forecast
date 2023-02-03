@@ -6,40 +6,80 @@
 <section class="float-start w-100 banner-part1">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 top-part-banner1">
-            <div class="col">
+            <div class="col-lg-6" style="padding: 0 15px;">
                 <h3>
                     <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}
-                    <span class="d-block">Thứ {{$currentDate->dayOfWeek}}, {{$currentDate->format('d-m-Y')}}</span>
+                    <span class="d-block">{{($currentDate->dayOfWeek == 7) ? "Chủ nhật" : "Thứ ".($currentDate->dayOfWeek+1)}}, {{$currentDate->format('d-m-Y')}}</span>
                 </h3>
-                <h1 class="mb-2">{{ceil($dataWeatherForcast[1]['main']['temp'])}}°C </h1>
-                {{-- <img src="http://openweathermap.org/img/w/{{$dataWeatherForcast[1]['weather'][0]['icon']}}.png" alt=""> --}}
+                <h1 class="mb-2">{{round($dataWeatherForcast[1]['main']['temp'])}}°C </h1>
+                <ul class="now-forecast">
+                    <li class="bg-f1 title-cart"><h4>Thời tiết chi tiết</h4></li>
+                    <li>
+                        <div class="right-li">Gió lạnh <span>{{round($dataWeatherForcast[1]['main']['temp'])}}°C</span></div>
+                        <div class="left-li">Mưa hàng ngày <span>2.25mm</span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Sương <span>{{round($dataWeatherForcast[1]['main']['temp'])}}°C</span></div>
+                        <div class="left-li">Mưa hàng tháng <span>2.55mm</span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Độ ẩm <span>{{round($dataWeatherForcast[1]['main']['humidity'])}}%</span></div>
+                        <div class="left-li">Hướng gió <span>{{round($dataWeatherForcast[1]['wind']['deg'])}}°</span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Áp suất <span>{{round($dataWeatherForcast[1]['main']['pressure'])}}°C</span></div>
+                        <div class="left-li">Gió giật <span>{{round($dataWeatherForcast[1]['wind']['gust'])}}m/s</span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Mặt trời mọc <span>{{date('H:i', $dataLocation["sunrise"])}}</span></div>
+                        <div class="left-li">Mặt trăng <span>Waxing Gibbous</span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Hoàng hôn <span>{{date('H:i', $dataLocation["sunset"])}}</span></div>
+                        <div class="left-li">Chỉ số UV <span></span></div>
+                    </li>
+                </ul>
             </div>
-            <div class="col">
-                <div class="date-m ms-lg-auto d-table">
-                    {{-- <h3>
-                        <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}
-                    <span class="d-block">{{$currentDate->toDateString()}}</span>
-                    </h3> --}}
-                </div>
+            <div class="col-lg-6">
+                <ul class="now-forecast">
+                    <li class="bg-f1 title-cart"><h4>Chất lượng không khí</h4></li>
+                    <li>
+                        <p style="color: {{$dataAir['main'][0]}}; margin:0;">{{$dataAir['main']['aqi']}}</p>
+                        
+                    </li>
+                    <li>
+                        <div class="right-li">Nồng độ CO <span>{{$dataAir['components']['co']}}μg/m<sub>3</sub></span></div>
+                        <div class="left-li">Nồng độ NO <span>{{$dataAir['components']['no']}}μg/m<sub>3</sub></span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Nồng độ O<sup>3</sup> <span>{{$dataAir['components']['o3']}}μg/m<sub>3</sub></span></div>
+                        <div class="left-li">Nồng độ SO<sup>2</sup> <span>{{$dataAir['components']['so2']}}μg/m<sub>3</sub></span></div>
+                    </li>
+                    <li>
+                        <div class="right-li">Nồng độ PM<sup>10</sup> <span>{{$dataAir['components']['pm10']}}μg/m<sub>3</sub></span></div>
+                        <div class="left-li">Nồng độ NH<sup>3</sup> <span>{{$dataAir['components']['nh3']}}μg/m<sub>3</sub></span></div>
+                    </li>
+                </ul>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60451.363900605065!2d105.80160163203561!3d21.030977745015672!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454c3ce577141%3A0xb1a1ac92701777bc!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUw6BpIG5ndXnDqm4gdsOgIE3DtGkgdHLGsOG7nW5nIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1675353506520!5m2!1svi!2s" width="100%" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                {{-- <figure class="m-0">
-                    <img src="{{asset("images/img-location/hanoi1.jpg")}}" alt="bnm" />
-                </figure> --}}
             </div>
         </div>
 
         <div class="hours-div">
-            <h2>Hàng giờ</h2>
+            <div id="title-forecast" class="title-forecast">
+                <h2 class="title-active">Hàng giờ</h2>
+                <h2>Hàng ngày</h2>
+            </div>
             <div class="weather-sild1 owl-carousel hourlyForecast">
                 @foreach($dataWeatherForcast as $key => $value)
 
                 <div class="hourly-cart">
                     <div class="cart-date">
-                        Thứ {{$currentDate->dayOfWeek}}, {{date('H:i', strtotime($value["dt_txt"]))}}
+                        {{($currentDate->dayOfWeek == 7) ? "Chủ nhật" : "Thứ ".($currentDate->dayOfWeek+1)}}, {{date('H:i', strtotime($value["dt_txt"]))}}
                     </div>
                     <div class="cart-condition">
                         <div class="cart-condition-nav">
-                            <h4>{{ceil($value['main']['temp'])}}°C</h4>
+                            <h4>{{round($value['main']['temp'])}}°C</h4>
                             <img src="http://openweathermap.org/img/w/{{$value['weather'][0]['icon']}}.png" alt="">
                         </div>
                         <p>Cảm giác: {{$value['main']['feels_like']}}°C</p>
@@ -63,7 +103,6 @@
                 </div>
 
                 @endforeach
-
             </div>
         </div>
     </div>
@@ -408,195 +447,6 @@
         </figure>
     </div>
 
-    <div class="world-forcust-div">
-        <div class="container">
-            <h1 class="text-center">World Weather Forecast</h1>
-            <div class="col-lg-10 mx-auto mt-5">
-                <ul class="list-unstyled p-0 m-0">
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/aus.jpg" alt="aus" />
-                            </figure>
-                            Australia
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/indo.jpg" alt="aus" />
-                            </figure>
-                            Indonesia
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/swi.jpg" alt="aus" />
-                            </figure>
-                            Sweden
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/japan.jpg" alt="aus" />
-                            </figure>
-                            Japan
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/candna.jpg" alt="aus" />
-                            </figure>
-                            Canda
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/nth.jpg" alt="aus" />
-                            </figure>
-                            Netherland
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/ind.jpg" alt="aus" />
-                            </figure>
-                            India
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/china.jpg" alt="aus" />
-                            </figure>
-                            China
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/londoan.jpg" alt="aus" />
-                            </figure>
-                            London
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/spian.jpg" alt="aus" />
-                            </figure>
-                            Spain
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/fra.jpg" alt="aus" />
-                            </figure>
-                            France
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/brzil.jpg" alt="aus" />
-                            </figure>
-                            Brazil
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/uk.jpg" alt="aus" />
-                            </figure>
-                            New York
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/poland.jpg" alt="aus" />
-                            </figure>
-                            Poland
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/ger.jpg" alt="aus" />
-                            </figure>
-                            Germaney
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/urb.jpg" alt="aus" />
-                            </figure>
-                            Dubai
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/arb.jpg" alt="aus" />
-                            </figure>
-                            Afganistan
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="comon-fom-st">
-                            <figure>
-                                <img src="images/um.jpg" alt="aus" />
-                            </figure>
-                            Bali
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <a href="#" class="btn explore-btn mt-4"> Explore All locations </a>
-        </div>
-    </div>
 
     <div class="world-map-div">
         <div class="container">
@@ -752,12 +602,29 @@
 
 </section>
 
+<style>
+    .owl-nav {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .owl-carousel .owl-nav button.owl-next,
+    .owl-carousel .owl-nav button.owl-prev, 
+    .owl-carousel button.owl-dot {
+        border: 1px #FFFFFF solid;
+        width: 30px;
+    }
+
+</style>
+
 @endsection
 @push('after-js')
 <script>
     $('.owl-carousel').owlCarousel({
         margin: 0
-        , nav: false
+        , nav: true
         , loop: false
         , dots: false
         , autoWidth: true
@@ -772,6 +639,11 @@
                 items: 5
             }
         }
+    })
+
+    $("#title-forecast h2").click(function(){
+        $("#title-forecast h2").removeClass('title-active');
+        $(this).addClass('title-active');
     })
 
 </script>
