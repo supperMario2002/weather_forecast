@@ -6,6 +6,7 @@
 <section class="float-start w-100 banner-part1">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 top-part-banner1">
+
             <div class="col-lg-6" style="padding: 0 15px;">
                 <h3>
                     <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}

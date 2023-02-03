@@ -41,5 +41,7 @@ class HomeController extends Controller
         }
         dd($data2);
         return view('user.home', compact('dataWeatherForcast','dataLocation','currentDate','dataAir'));
+
+
     }
 }
