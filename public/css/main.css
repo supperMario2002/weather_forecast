@@ -1,7 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 *, ::after, ::before {
     box-sizing: border-box;
 }
@@ -14,7 +13,7 @@ a, abbr, acronym, address, applet, big, blockquote, body, cite, code, dd, del, d
 	outline: none !important;
 	padding: 0;
 	vertical-align: baseline;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
@@ -27,7 +26,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 20px 0;
-	font-family: 'Renner_400Book';
+	
 }
 h1{
 	color: #181818;
@@ -51,43 +50,6 @@ button:focus{
 	outline: none !important;
 }
 
-@font-face {
-    font-family: 'LEMONMILKMedium';
-    src: url('../fonts/LEMONMILKMedium.eot');
-    src: url('../fonts/LEMONMILKMedium.eot') format('embedded-opentype'),
-         url('../fonts/LEMONMILKMedium.woff2') format('woff2'),
-         url('../fonts/LEMONMILKMedium.woff') format('woff'),
-         url('../fonts/LEMONMILKMedium.ttf') format('truetype'),
-         url('../fonts/LEMONMILKMedium.svg#LEMONMILKMedium') format('svg');
-}
-
-@font-face {
-    font-family: 'LEMONMILKRegular';
-    src: url('../fonts/LEMONMILKRegular.eot');
-    src: url('../fonts/LEMONMILKRegular.eot') format('embedded-opentype'),
-         url('../fonts/LEMONMILKRegular.woff2') format('woff2'),
-         url('../fonts/LEMONMILKRegular.woff') format('woff'),
-         url('../fonts/LEMONMILKRegular.ttf') format('truetype'),
-         url('../fonts/LEMONMILKRegular.svg#LEMONMILKRegular') format('svg');
-}
-@font-face {
-    font-family: 'modernM';
-    src: url('../fonts/modernM.eot');
-    src: url('../fonts/modernM.eot') format('embedded-opentype'),
-         url('../fonts/modernM.woff2') format('woff2'),
-         url('../fonts/modernM.woff') format('woff'),
-         url('../fonts/modernM.ttf') format('truetype'),
-         url('../fonts/modernM.svg#modernM') format('svg');
-}
-@font-face {
-    font-family: 'Renner_400Book';
-    src: url('../fonts/Renner_400Book.eot');
-    src: url('../fonts/Renner_400Book.eot') format('embedded-opentype'),
-         url('../fonts/Renner_400Book.woff2') format('woff2'),
-         url('../fonts/Renner_400Book.woff') format('woff'),
-         url('../fonts/Renner_400Book.ttf') format('truetype'),
-         url('../fonts/Renner_400Book.svg#Renner_400Book') format('svg');
-}
 
 ol {
 	padding-left: 0;
@@ -150,20 +112,20 @@ header{
 	padding: 6px 22px;
 	font-size: 14px;
 	font-weight: 500;
-	font-family: 'Renner_400Book';
+	
 	
 }
 .banner-part1 h1,
 .banner-part1 h5{
 	color: #fff;
-	font-family: 'Renner_400Book';
+	
 }
 .banner-part1 h5{
 	color: #a683ff;
 	font-size: 18px;
 }
 .banner-part1 h1 span{
-	font-family: 'Renner_400Book';
+	
 	font-weight: 700;
 }
 .serach-divb-1{
@@ -191,7 +153,7 @@ header{
 	color: #fff;
 	height: 50px;
 	border-radius: 0 3px 3px 0;
-	font-family: 'Renner_400Book';
+	
 	padding: 8px 15px;
 }
 .serach-divb-1 .form-control{
@@ -208,16 +170,18 @@ header{
 }
 
 .banner-part1{
-	background: url(../images/banner-iimg-bg.jpg) no-repeat;
+	background: url(../images/cloudy-night_l-desktop.jpeg) no-repeat;
+	/* background: url(../images/cloudy-day_l-desktop.jpeg) no-repeat; */
 	width: 100%;
 	background-size: cover;
-	min-height:700px;
+	min-height:750px;
 	position: relative;
 	padding-top:120px;
 	overflow: hidden;
+	/* filter: grayscale(30%); */
 }
 .sub-page-banner{
-	background: url(../images/banner-iimg-bg.jpg) no-repeat;
+	background: url(../images/mountains-1985027.jpg) no-repeat;
 	width: 100%;
 	background-size: cover;
 	min-height: 200px;
@@ -228,7 +192,7 @@ header{
 }
 .top-bar .navbar-nav .nav-link{
      color: #000;
-	 font-family: 'Renner_400Book';
+	 
 }
 .top-bar .navbar-nav .active{
 	color: #f6cb43 !important;
@@ -242,15 +206,15 @@ header{
 	padding-top: 70px;
 }
 .recent-search-div h2{
-	font-family: 'Renner_400Book';
+	
 	font-weight: 700;
 	text-transform: capitalize;
 }
 .recent-search-div h2 span{
-	font-family: 'Renner_400Book';
+	 
 }
 .recent-search-div h5{
-	font-family: 'Renner_400Book';
+	
 	font-size: 24px;
 }
 .comon-recent,
@@ -766,11 +730,11 @@ header{
 
   .content-part h4,
   .content-part h6{
-	font-family: 'Renner_400Book';
+	
   }
 
   .content-part h3{
-	font-family: 'LEMONMILKRegular';
+	
   }
   .content-part h3 sup{
 	font-size: 13px;
@@ -837,7 +801,7 @@ header{
 	margin: 0;
   }
   .left-sec-d1 h2{
-	font-family: 'LEMONMILKRegular';
+	
 	font-size: 35px;
   }
   .left-sec-d1 ul li{
@@ -853,7 +817,7 @@ header{
   }
   .night-moon h1{
     color: #fff;
-	font-family: 'Renner_400Book';
+	
 	font-weight: 700;
   }
 
@@ -872,10 +836,10 @@ header{
 	position: relative;
   }
   .comon-days h4{
-	font-family: 'Renner_400Book';
+	
   }
   .comon-days h6{
-	font-family: 'LEMONMILKRegular';
+	
   }
   .comon-days .sunny{
 	position: relative;
@@ -900,7 +864,7 @@ header{
 	display: inline-block;
   }
   .comon-report h2{
-	font-family: 'LEMONMILKRegular';
+	
   }
   .comon-report sup,
   .comon-report sub{
@@ -917,7 +881,7 @@ header{
   }
 
   .today-hilights1{
-	font-family: 'Renner_400Book';
+	
 	color: #fff;
 	font-weight: 600;
   }
@@ -925,7 +889,7 @@ header{
 	display:flex;
 	position: relative;
 	width: 100%;
-	font-family: 'Renner_400Book';
+	
   }
   .comon-fom-st i{
 	transform: rotate(-30deg);
@@ -939,11 +903,11 @@ header{
   }
   .world-forcust-div h1,
   .world-map-div h1{
-	font-family: 'Renner_400Book';
+	
 	font-weight: 700;
   }
   .comon-fom-st{
-	font-family: 'Renner_400Book';
+	
 	font-size: 15px;
 	text-decoration: none;
 	display: flex;
@@ -983,7 +947,7 @@ header{
   .more-btn{
 	background: #00aef5;
     color: #fff !important;
-	font-family: 'Renner_400Book';
+	
 	padding: 10px 35px;
 	display: table;
 	margin: auto;
@@ -1167,7 +1131,7 @@ header{
 }
 .comon-part-video .bg-titel{
 	color: #000;
-	font-family: 'Renner_400Book';
+	
 	font-weight: 600;
 	margin-bottom:0;
 	white-space: nowrap;
@@ -1283,7 +1247,7 @@ footer p{
 	display: inline-block;
   }
   .city{
-	font-family: 'LEMONMILKRegular';
+	
   }
   .title__container,
   .main{
@@ -1305,14 +1269,14 @@ footer p{
   }
   .title__container .title,
   .forecast{
-	font-family: 'Renner_400Book';
+	
   }
   .title__container .city{
 	font-size: 13px;
   }
   .temperature{
 	margin-top: 20px;
-	font-family: 'LEMONMILKRegular';
+	
 	font-size: 35px;
 	display: flex;
 	align-items: center;
@@ -1321,7 +1285,7 @@ footer p{
   .temperature__min{
 	background: #321391;
 	border-radius: 20px;
-	font-family: 'Renner_400Book';
+	
 	font-size: 13px;
 	padding: 5px 10px;
 	margin-left: 8px;
@@ -1332,7 +1296,7 @@ footer p{
 	align-content: center;
 	justify-content: center;
 	color: #fff;
-	font-family: 'Renner_400Book';
+	
 	text-align: center;
 	position: relative;
 	z-index: 2;
@@ -1348,7 +1312,7 @@ footer p{
   }
   .info__title,
   .info__value{
-	font-family: 'Renner_400Book';
+	
   }
   .info__title{
 	font-size: 13px;
@@ -1367,7 +1331,7 @@ footer p{
 
 .breadcrumb-item a,
 .breadcrumb-item li{
-	font-family: 'Renner_400Book';
+	
 	color: #000;
 	text-decoration: none;
 }
@@ -1402,7 +1366,7 @@ footer p{
 	color: #393c3c;
 }
 .category-div h2{
-	font-family: 'Renner_400Book';
+	
 }
 .category-div, .job-ds-div {
     background: #f7f7f7;
@@ -1421,7 +1385,7 @@ footer p{
     color: #212529;
     transition: all 0.5s;
     text-transform: capitalize;
-    font-family: 'Renner_400Book';
+    
 }
 .comon-part-video .btn{
     width: 100%;
@@ -1431,11 +1395,9 @@ footer p{
   
 .banner-part1 h1{
    font-size: 110px;
-   color: #203159;
-   font-family: 'Renner_400Book';
 }
 .banner-part1 h1 sup{
-	font-family: 'Renner_400Book';
+	
 	font-size: 40px;
 	position: relative;
 	top:-70px;
@@ -1465,14 +1427,14 @@ footer p{
 }
 .top-news  h5{
 	width: 70%;
-	font-family: 'Renner_400Book';
+	
 	font-size: 18px;
 }
 .top-news  h5 span{
 	font-size: 15px;
 	color: #00aef5;
 	margin-top: 5px;
-	font-family: 'Renner_400Book';
+	
 }
 .top-news figure{
 	width: 80px;
@@ -1488,19 +1450,19 @@ footer p{
 }
 .banner-part1 h2 span{
 	font-size:40px;
-	color: #203159;
-	font-family: 'LEMONMILKRegular';
+	color: #FFFFFF;
+	
  }
  .banner-part1 h2 sup{
-	font-family: 'Renner_400Book';
+	
 	font-size: 20px;
 	position: relative;
 	top:-20px;
  }
 
  .banner-part1 h3{
-	font-family: 'Renner_400Book';
-	color: #203159;
+	
+	color: #FFFFFF;
  }
  .banner-part1 h3 i{
 	font-size: 17px;
@@ -1509,18 +1471,18 @@ footer p{
  }
  .banner-part1 h3 span{
 	font-size:16px;
-	font-family: 'Renner_400Book';
+	
 	margin-top: 2px;
  }
 
  .hours-div h2{
-	font-family: 'Renner_400Book';
-	color: #203159;
-	font-weight: 700;
+	
+	color: #FFFFFF;
+	font-weight: 500;
  }
 
  .live-weather{
-	box-shadow: #e3e3e3 1px 2px 20px;
+	box-shadow: none;
 	display: grid;
 	align-content: center;
 	width: 100%;
@@ -1535,7 +1497,7 @@ footer p{
 	font-weight: 700;
  }
  .live-weather h4{
-	font-family: 'LEMONMILKRegular';
+	
 	color: #203159;
  }
 
@@ -1544,7 +1506,7 @@ footer p{
     box-shadow: none !important;
  }
  .live-weather h4 sup{
-	font-family: 'Renner_400Book';
+	
 	font-size: 16px;
  }
  .live-weather .partly_cloudy{
@@ -1621,7 +1583,7 @@ footer p{
 .dya-mn .nav-tabs .nav-item.show .nav-link, 
 .dya-mn .nav-tabs .nav-link.active {
     background-image: linear-gradient(to right top, #fe5450, #ff684b, #ff7a48, #ff8b46, #ff9b48) !important;
-    font-family: 'Renner_400Book';
+    
     color: #fff;
 }
 .dya-mn .nav-link {
@@ -1669,7 +1631,7 @@ footer p{
 }
 .comon-photo-light h5 span{
 	font-size: 14px;
-	font-family: 'Renner_400Book';
+	
 	margin-top: 10px;
 }
 
@@ -1719,7 +1681,7 @@ footer p{
     font-weight: 600;
     font-size: 18px;
     margin-left: 15px;
-	font-family: 'Renner_400Book';
+	
 }
 .conatct-form-div {
     display: inline-block;
@@ -1744,7 +1706,7 @@ footer p{
     background: #00aef5;
     color: #fff;
 	width: 150px;
-	font-family: 'Renner_400Book';
+	
 }
 @media screen and (max-width: 1180px) { 
 .comon-days h6{
@@ -1894,7 +1856,7 @@ button.close-menu svg{
     margin-bottom: 3px;
     width: 100%;
     text-align: left;
-	font-family: 'Renner_400Book';
+	
 }
 .side-media {
     list-style-type: none;
@@ -1936,7 +1898,7 @@ button.close-menu svg{
     font-size: 18px;
     font-weight: 400;
     width: 161px;
-	font-family: 'Renner_400Book';
+	
 	margin-right: 10px;
 }
 
@@ -1971,7 +1933,7 @@ button.close-menu svg{
     width: 154px;
     height: 48px;
     color: #fff !important;
-	font-family: 'Renner_400Book';
+	
 }
 
 
@@ -1986,7 +1948,7 @@ button.close-menu svg{
 .login-div-modal h5 {
     font-weight: 700;
     font-size: 25px;
-	font-family: 'Renner_400Book';
+	
 }
 .login-modal-pn .form-control {
     border: none;
@@ -2003,14 +1965,14 @@ button.close-menu svg{
     width: 100%;
     display: inline-block;
     box-shadow: 0 20px 30px 0 rgb(172 172 172 / 40%);
-	font-family: 'Renner_400Book';
+	
 }
 .regster-bn {
     text-decoration: none;
     font-weight: 600;
     color: #00aef5;
     cursor: pointer;
-	font-family: 'Renner_400Book';
+	
 }
 .login-div-modal .close {
     transform: none;
@@ -2035,3 +1997,92 @@ button.close-menu svg{
 	display: flex;
 }
 
+.hourlyForecast{
+	display: flex;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    margin: auto;
+    width: 100%;
+}
+.hours-div{
+	margin-top: 70px;
+}
+.hourly-cart{
+	display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    width: 180px;
+    height: 260px;
+    margin-right: 5px;
+    background: rgb(249, 249, 249);
+    min-width: 170px;
+    scroll-snap-align: start;
+}
+
+.cart-date{
+	width: 100%;
+	font-size: 18px;
+	color: #666666;
+	padding: 8px 10px;
+	background-color: #FFFFFF;
+	font-weight: 500;
+}
+
+.cart-condition{
+	padding: 15px 15px 0;
+}
+.cart-condition p {
+	text-align: center;
+	color: #666666;
+	margin: 0;
+}
+
+.cart-condition-nav{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+.cart-condition-nav h4{
+	margin-right: 10px;
+	font-size: 44px;
+	color: #666666;
+}
+.cart-condition-nav img{
+	width: 70px !important;
+}
+
+.cart-detals{
+	width: 100%;
+	margin: 0;
+	display: flex;
+    flex-direction: column;
+    padding: 0px;
+
+}
+
+.cart-detals li{
+	display: flex;
+    flex-direction: row;
+    width: 100%;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0px 15px;
+    height: 26px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.cart-detals li .name-att{
+	color: #AAAAAA;
+	width: 50%;
+	
+}
+.cart-detals li .val{
+	color: #666666;
+	width: 50%;
+}
+.bg-f1{
+	background-color: #F1F1F1;
+}
