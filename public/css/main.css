@@ -170,7 +170,8 @@ header{
 }
 
 .banner-part1{
-	background: url(../images/cloudy-night_l-desktop.jpeg) no-repeat;
+	background: url(../images/rainy-day_l-desktop.jpeg) no-repeat;
+	/* background: url(../images/cloudy-night_l-desktop.jpeg) no-repeat; */
 	/* background: url(../images/cloudy-day_l-desktop.jpeg) no-repeat; */
 	width: 100%;
 	background-size: cover;
@@ -2006,7 +2007,7 @@ button.close-menu svg{
     width: 100%;
 }
 .hours-div{
-	margin-top: 70px;
+	margin-top: 50px;
 }
 .hourly-cart{
 	display: flex;
@@ -2086,3 +2087,60 @@ button.close-menu svg{
 .bg-f1{
 	background-color: #F1F1F1;
 }
+
+.now-forecast{
+	width: 100%;
+	background-color: #FFFFFF;
+	
+}
+.now-forecast li {
+	display: flex;
+    justify-content: space-around;
+	padding: 5px 15px;
+	width: 100%;
+}
+
+.now-forecast li div{
+	width: 50%;
+	color: #666666;
+}
+.now-forecast li div span{
+	margin-left: 8px;
+	color: rgb(67, 85, 96);
+    font-size: 15px;
+    font-weight: 400;
+}
+.now-forecast .title-cart{
+	height: 40px;
+	background-color: #b2b0b0a8;
+}
+.now-forecast .title-cart h4{
+	margin: 0;
+	height: 100%;
+	line-height: 40px;
+	font-weight: 600;;
+}
+.title-forecast{
+	display: flex;
+}
+.title-forecast h2{
+	font-weight: 300;
+	cursor: pointer;
+	padding: 2px 5px;
+	border-bottom: 3px #ffffff8d solid;
+	color: #ffffff8d;
+}
+.title-forecast h2:hover{
+	color: #FFFFFF;
+	border-bottom: 3px #FFFFFF solid;
+}
+.title-forecast .title-active:hover{
+	color: #FFFFFF !important;
+	border-bottom: 3px #ffffff8d solid !important;
+}
+.title-active{
+	font-weight: 600 !important;
+	color: #FFFFFF !important;
+	border-bottom: 3px #FFFFFF solid !important;
+}
+
