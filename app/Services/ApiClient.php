@@ -9,7 +9,7 @@ class ApiClient {
     public function __construct() {
         $this->client = new Client([
             'base_uri' => 'https://api.example.com/v1/',
-            'timeout'  => 2.0,
+            // 'timeout'  => 2.0,
         ]);
     }
 
