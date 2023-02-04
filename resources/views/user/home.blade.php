@@ -3,9 +3,10 @@
 @section('name', 'Trang chủ')
 
 @section('content')
-<section class="float-start w-100 banner-part1">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 top-part-banner1">
+
+    <section class="float-start w-100 banner-part1">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 top-part-banner1">
 
             <div class="col-lg-6" style="padding: 0 15px;">
                 <h3>
@@ -47,7 +48,6 @@
                     </li>
                     <li>
                         <p style="color: {{$dataAir['main'][0]}}; margin:0;">{{$dataAir['main']['aqi']}}</p>
-
                     </li>
                     <li>
                         <div class="right-li">Nồng độ CO <span>{{$dataAir['components']['co']}}μg/m<sub>3</sub></span></div>
@@ -63,7 +63,6 @@
                     </li>
                 </ul>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60451.363900605065!2d105.80160163203561!3d21.030977745015672!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454c3ce577141%3A0xb1a1ac92701777bc!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUw6BpIG5ndXnDqm4gdsOgIE3DtGkgdHLGsOG7nW5nIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1675353506520!5m2!1svi!2s" width="100%" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
             </div>
         </div>
 
