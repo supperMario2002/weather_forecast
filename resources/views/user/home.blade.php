@@ -12,32 +12,29 @@
                     <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}
                     <span class="d-block">{{($currentDate->dayOfWeek == 7) ? "Chủ nhật" : "Thứ ".($currentDate->dayOfWeek+1)}}, {{$currentDate->format('d-m-Y')}}</span>
                 </h3>
-                <h1 class="mb-2">{{round($dataWeatherForcast[1]['main']['temp'])}}°C </h1>
+                <h1 class="mb-2">{{$dataCurrent['temp_c']}}°C </h1>
+                <h4 style="color: #fff;">{{$dataCurrent['condition']['text']}}  <img src="https:{{$dataCurrent['condition']['icon']}}" alt=""></h4>
                 <ul class="now-forecast">
                     <li class="bg-f1 title-cart"><h4>Thời tiết chi tiết</h4></li>
                     <li>
-                        <div class="right-li">Gió lạnh <span>{{round($dataWeatherForcast[1]['main']['temp'])}}°C</span></div>
-                        <div class="left-li">Mưa hàng ngày <span>2.25mm</span></div>
+                        <div class="right-li">Tốc độ gió <span>{{$dataCurrent['wind_kph']}}Km/h</span></div>
+                        <div class="left-li">Cám giác như <span>{{$dataCurrent['feelslike_c']}}°C</span></div>
+                    </li>
+                     <li>
+                        <div class="right-li">Mây <span>{{round($dataCurrent['cloud'])}}%</span></div>
+                        <div class="left-li">Lượng mưa <span>{{$dataCurrent['precip_mm']}}mm</span></div>
+                    </li>
+                   <li>
+                        <div class="right-li">Độ ẩm <span>{{round($dataCurrent['humidity'])}}%</span></div>
+                        <div class="left-li">Hướng gió <span>{{$dataCurrent['wind_degree']}}°</span></div>
                     </li>
                     <li>
-                        <div class="right-li">Sương <span>{{round($dataWeatherForcast[1]['main']['temp'])}}°C</span></div>
-                        <div class="left-li">Mưa hàng tháng <span>2.55mm</span></div>
+                        <div class="right-li">Tầm nhìn <span>{{$dataCurrent['vis_km']}}Km</span></div>
+                        <div class="left-li">Gió giật <span>{{round($dataCurrent['gust_kph'])}}Km/h</span></div>
                     </li>
                     <li>
-                        <div class="right-li">Độ ẩm <span>{{round($dataWeatherForcast[1]['main']['humidity'])}}%</span></div>
-                        <div class="left-li">Hướng gió <span>{{round($dataWeatherForcast[1]['wind']['deg'])}}°</span></div>
-                    </li>
-                    <li>
-                        <div class="right-li">Áp suất <span>{{round($dataWeatherForcast[1]['main']['pressure'])}}°C</span></div>
-                        <div class="left-li">Gió giật <span>{{round($dataWeatherForcast[1]['wind']['gust'])}}m/s</span></div>
-                    </li>
-                    <li>
-                        <div class="right-li">Mặt trời mọc <span>{{date('H:i', $dataLocation["sunrise"])}}</span></div>
                         <div class="left-li">Mặt trăng <span>Waxing Gibbous</span></div>
-                    </li>
-                    <li>
-                        <div class="right-li">Hoàng hôn <span>{{date('H:i', $dataLocation["sunset"])}}</span></div>
-                        <div class="left-li">Chỉ số UV <span></span></div>
+                        <div class="left-li">Chỉ số UV <span>{{$dataCurrent['uv']}}</span></div>
                     </li>
                 </ul>
             </div>
@@ -68,41 +65,87 @@
 
         <div class="hours-div">
             <div id="title-forecast" class="title-forecast">
-                <h2 class="title-active">Hàng giờ</h2>
-                <h2>Hàng ngày</h2>
+                <h2 class="title-active" id="hourly">Hàng giờ</h2>
+                <h2 id="day">Hàng ngày</h2>
             </div>
-            <div class="weather-sild1 owl-carousel hourlyForecast">
-                @foreach($dataWeatherForcast as $key => $value)
-
-                <div class="hourly-cart">
-                    <div class="cart-date">
-                        {{($currentDate->dayOfWeek == 7) ? "Chủ nhật" : "Thứ ".($currentDate->dayOfWeek+1)}}, {{date('H:i', strtotime($value["dt_txt"]))}}
+            <div class="weather-sild1 owl-carousel hourlyForecast" id="hourlyForecast">
+                @foreach($dataForecast as $key => $value)
+                        @foreach($value['hour'] as $hourly)
+                            @if(date('d-m-Y H', strtotime($hourly['time'])) == date('d-m-Y H', strtotime($currentDate)))
+                                <div class="hourly-cart">
+                                    <div class="cart-date">
+                                        <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">Bây giờ</p>
+                                    </div>
+                                    <div class="cart-condition">
+                                        <div class="cart-condition-nav">
+                                            <h4>{{round($hourly['temp_c'])}}°C</h4>
+                                            <img src="https:{{$hourly['condition']['icon']}}" alt="">
+                                        </div>
+                                        <p>Cảm giác: {{round($hourly['feelslike_c'])}}°C</p>
+                                        <p>{{$hourly['condition']['text']}}</p>
+                
+                                    </div>
+                                    <ul class="cart-detals">
+                                        <li class="bg-f1">
+                                            <span class="name-att">Độ ẩm :</span> 
+                                            <span class="val">{{$hourly['humidity']}}%</span>
+                                        </li>
+                                        <li>
+                                            <span>Gió :</span class="name-att"> 
+                                            <span class="val">{{$hourly['wind_kph']}}Km/h</span>
+                                            </li>
+                                        <li class="bg-f1">
+                                            <span class="name-att">Mây :</span> 
+                                            <span class="val">{{$hourly['cloud']}}%</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @elseif(date('d-m-Y H', strtotime($hourly['time'])) > date('d-m-Y H', strtotime($currentDate)))
+                                <div class="hourly-cart">
+                                    <div class="cart-date">
+                                        <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">{{date('H:i', strtotime($hourly['time']))}}</p>
+                                    </div>
+                                    <div class="cart-condition">
+                                        <div class="cart-condition-nav">
+                                            <h4>{{round($hourly['temp_c'])}}°C</h4>
+                                            <img src="https:{{$hourly['condition']['icon']}}" alt="">
+                                        </div>
+                                        <p>Cảm giác: {{round($hourly['feelslike_c'])}}°C</p>
+                                        <p>{{$hourly['condition']['text']}}</p>
+                
+                                    </div>
+                                    <ul class="cart-detals">
+                                        <li class="bg-f1">
+                                            <span class="name-att">Độ ẩm :</span> 
+                                            <span class="val">{{$hourly['humidity']}}%</span>
+                                        </li>
+                                        <li>
+                                            <span>Gió :</span class="name-att"> 
+                                            <span class="val">{{$hourly['wind_kph']}}Km/h</span>
+                                            </li>
+                                        <li class="bg-f1">
+                                            <span class="name-att">Mây :</span> 
+                                            <span class="val">{{$hourly['cloud']}}%</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endif
+                        @endforeach
+                @endforeach
+            </div>
+            <div class="weather-sild1 owl-carousel hourlyForecast" id="dayForecast" style="display: none;">
+                @foreach($dataForecast as $key => $day)
+                    <div class="hourly-cart">
+                        @if(date('d-m-Y', strtotime($day['date'])) == date('d-m-Y', strtotime($currentDate)))
+                            <div class="cart-date">
+                                <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">Hôm nay</p>
+                            </div>
+                        @elseif(date('d-m-Y', strtotime($day['date'])) > date('d-m-Y', strtotime($currentDate)))
+                            <div class="cart-date">
+                                <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">{{date('d-m-Y', strtotime($day['date']))}}</p>
+                            </div>
+                        @endif
                     </div>
-                    <div class="cart-condition">
-                        <div class="cart-condition-nav">
-                            <h4>{{round($value['main']['temp'])}}°C</h4>
-                            <img src="http://openweathermap.org/img/w/{{$value['weather'][0]['icon']}}.png" alt="">
-                        </div>
-                        <p>Cảm giác: {{$value['main']['feels_like']}}°C</p>
-                        <p>Trời có {{$value['weather'][0]['description']}}</p>
-
-                    </div>
-                    <ul class="cart-detals">
-                        <li class="bg-f1">
-                            <span class="name-att">Độ ẩm :</span> 
-                            <span class="val">{{$value['main']['humidity']}}%</span>
-                        </li>
-                        <li>
-                            <span>Gió :</span class="name-att"> 
-                            <span class="val">{{$value['wind']['speed']}}m/s</span>
-                            </li>
-                        <li class="bg-f1">
-                            <span class="name-att">Mây :</span> 
-                            <span class="val">{{$value['clouds']['all']}}%</span>
-                        </li>
-                    </ul>
-                </div>
-
                 @endforeach
             </div>
         </div>
@@ -642,9 +685,18 @@
         }
     })
 
-    $("#title-forecast h2").click(function(){
+    $("#day").click(function(){
         $("#title-forecast h2").removeClass('title-active');
         $(this).addClass('title-active');
+        $("#hourlyForecast").hide();
+        $("#dayForecast").show();
+    })
+
+    $("#hourly").click(function(){
+        $("#title-forecast h2").removeClass('title-active');
+        $(this).addClass('title-active');
+        $("#hourlyForecast").show();
+        $("#dayForecast").hide();
     })
 
 </script>
