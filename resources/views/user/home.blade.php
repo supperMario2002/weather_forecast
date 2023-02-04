@@ -133,17 +133,57 @@
                         @endforeach
                 @endforeach
             </div>
-            <div class="weather-sild1 owl-carousel hourlyForecast" id="dayForecast" style="display: none;">
+            <div class="weather-sild1 owl-carousel hourlyForecast" id="dayForecast">
                 @foreach($dataForecast as $key => $day)
                     <div class="hourly-cart">
                         @if(date('d-m-Y', strtotime($day['date'])) == date('d-m-Y', strtotime($currentDate)))
                             <div class="cart-date">
                                 <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">Hôm nay</p>
                             </div>
-                        @elseif(date('d-m-Y', strtotime($day['date'])) > date('d-m-Y', strtotime($currentDate)))
-                            <div class="cart-date">
-                                <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">{{date('d-m-Y', strtotime($day['date']))}}</p>
+                            <div class="cday">
+                                <div class="cday-content">
+                                    <div class="chils">
+                                        <span>Sáng</span>
+                                        <p class="m-0">{{$day['hour'][8]['temp_c']}}°C</p>
+                                    </div>
+                                    <div><img src="https:{{$day['hour'][8]['condition']['icon']}}" width="64" alt=""></div>
+                                </div>
+                                <p class="m-0">{{$day['hour'][8]['condition']['text']}}</p>
                             </div>
+                            <div class="cnight">
+                                <div class="cnight-content">
+                                    <div class="chils">
+                                        <span>Tối</span>
+                                        <p class="m-0">{{$day['hour'][8]['temp_c']}}°C</p>
+                                    </div>
+                                    <div><img src="https:{{$day['hour'][8]['condition']['icon']}}" width="64" alt=""></div>
+                                </div>
+                                <p class="m-0">{{$day['hour'][8]['condition']['text']}}</p>
+                            </div>
+                        @elseif(date('d-m-Y', strtotime($day['date'])) > date('d-m-Y', strtotime($currentDate)))
+                        <div class="cart-date">
+                            <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">{{date('d-m-Y', strtotime($day['date']))}}</p>
+                        </div>
+                        <div class="cday">
+                            <div class="cday-content">
+                                <div class="chils">
+                                    <span>Sáng</span>
+                                    <p class="m-0">{{$day['hour'][8]['temp_c']}}°C</p>
+                                </div>
+                                <div><img src="https:{{$day['hour'][8]['condition']['icon']}}" width="64" alt=""></div>
+                            </div>
+                            <p class="m-0">{{$day['hour'][8]['condition']['text']}}</p>
+                        </div>
+                        <div class="cnight">
+                            <div class="cnight-content">
+                                <div class="chils">
+                                    <span>Tối</span>
+                                    <p class="m-0">{{$day['hour'][8]['temp_c']}}°C</p>
+                                </div>
+                                <div><img src="https:{{$day['hour'][8]['condition']['icon']}}" width="64" alt=""></div>
+                            </div>
+                            <p class="m-0">{{$day['hour'][8]['condition']['text']}}</p>
+                        </div>
                         @endif
                     </div>
                 @endforeach
@@ -661,6 +701,37 @@
         width: 30px;
     }
 
+    .cday{
+        width: 100%;
+        height: 97px;
+        border-bottom: 2px #CCCCCC solid;
+        padding: 5px 15px;
+    }
+    .cnight .cnight-content,
+    .cday .cday-content{
+        display: flex;
+        justify-content: space-between;
+    }
+    .cnight .cnight-content p,
+    .cday .cday-content p{
+        color: #666666;
+        font-size: 28px;
+        font-weight: 600;
+    }
+    .chils span{
+        color: #AAAAAA;
+        font-size: 14px;
+    }
+    .cnight p,
+    .cday p{
+        color: #666666;
+        font-size: 16px;
+    }
+    .cnight{
+        width: 100%;
+        height: 97px;
+        padding: 5px 15px;
+    }
 </style>
 
 @endsection
@@ -685,6 +756,7 @@
         }
     })
 
+    $("#dayForecast").hide()
     $("#day").click(function(){
         $("#title-forecast h2").removeClass('title-active');
         $(this).addClass('title-active');
