@@ -17,12 +17,17 @@ a, abbr, acronym, address, applet, big, blockquote, body, cite, code, dd, del, d
 }
 
 body {
+		/* background: url(../images/rainy-day_l-desktop.jpeg) no-repeat; */
+	/* background: url(../images/cloudy-night_l-desktop.jpeg) no-repeat; */
+	background: url(../images/cloudy-day_l-desktop.jpeg) no-repeat;
 	margin: 0;
 	padding: 0;
-	background: #fff;
-	background-repeat: repeat-x;
+	/* background: #fff; */
+	/* background-repeat: no-repeat; */
+	background-size: cover;
 	font-size:17px;
 	color:#333333;
+	height: 100%;
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 20px 0;
@@ -170,11 +175,7 @@ header{
 }
 
 .banner-part1{
-	background: url(../images/rainy-day_l-desktop.jpeg) no-repeat;
-	/* background: url(../images/cloudy-night_l-desktop.jpeg) no-repeat; */
-	/* background: url(../images/cloudy-day_l-desktop.jpeg) no-repeat; */
 	width: 100%;
-	background-size: cover;
 	min-height:750px;
 	position: relative;
 	padding-top:120px;
