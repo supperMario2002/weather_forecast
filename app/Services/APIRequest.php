@@ -20,7 +20,7 @@ class APIRequest extends ApiClient
     public function dayWeather(){
         return  $this->client->get('http://api.weatherapi.com/v1/forecast.json', [
             'key' => env('API_KEY_WEATHER'),
-            'q' => '21.059945,105.719926',
+            'q' => 'bac-giang',
             'days' => 10,
             'lang' => 'vi',
         ]);

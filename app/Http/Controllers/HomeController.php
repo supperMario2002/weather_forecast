@@ -13,7 +13,7 @@ class HomeController extends Controller
         $dataLocation = $dataWeather['location'];
         $dataCurrent = $dataWeather['current'];
         $dataForecast = $dataWeather['forecast']['forecastday'];
-        // dd($dataForecast);
+        // dd($dataWeather);
 
         $currentDate = Carbon::now();
         // call api air
