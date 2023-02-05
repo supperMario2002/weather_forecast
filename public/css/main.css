@@ -193,8 +193,8 @@ header{
     margin: 0 10px;
 }
 .top-bar .navbar-nav .nav-link{
-     color: #000;
-	 
+     color: #666666 !important;
+	 font-size: 18px;
 }
 .top-bar .navbar-nav .active{
 	color: #f6cb43 !important;
@@ -2144,4 +2144,31 @@ button.close-menu svg{
 	color: #FFFFFF !important;
 	border-bottom: 3px #FFFFFF solid !important;
 }
+/* Css thanh navbar */
+.input-search-location{
+	position: relative;
+}
+.btn-search{
+	margin-left: 5px;
+}
+.data-search{
+	position: absolute;
+	background-color: #FFFFFF;
+	width: 280px;
+	margin-top: 5px;
+	height: auto;
+}
 
+.data-search ul li{
+	width: 100%;
+	height: 40px;
+	border: 1px #ccc solid;
+	line-height: 40px;
+	padding: 0 10px;
+}
+
+.data-search ul li:hover{
+	background-color: #a8a5a5a4;
+}
+
+/* end navbar */

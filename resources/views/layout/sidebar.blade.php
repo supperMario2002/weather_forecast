@@ -19,12 +19,33 @@
             <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
         </li>
         <li class="nav-item">
-            <div class="input-group">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary">search</button>
+            <div class="input-group input-search-location">
+                <input type="search" class="form-control rounded" id="search-location" placeholder="Nhập tên các tình thành ..." />
+                <button type="button" class="btn btn-search">Tìm kiếm</button>
+            </div>
+            <div class="data-search">
+                <ul>
+                    <li>Xã Kiên thành, Lục ngạn, Bắc giang</li>
+                    <li>Xã Kiên thành (Bắc giang)</li>
+                    <li>Xã Kiên thành (Bắc giang)</li>
+                    <li>Xã Kiên thành (Bắc giang)</li>
+                </ul>
             </div>
         </li>
     </ul>
 </div>
 
+{{-- @push('after-js')
+<script>
+    $.ajax({
+        type: "GET"
+        , url: "https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1"
+        , dataType: "json"
+        , success: function(response) {
+            console.log(response);
+        }
+    });
+
+</script>
+@endpush --}}
 
