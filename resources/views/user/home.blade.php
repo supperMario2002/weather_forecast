@@ -972,11 +972,11 @@
     }
 
     .forecast {
-        background: #5da8ce;
+        background: #5da8ce78;
     }
 
     .current-location {
-        background: #5da8ce;
+        background: #5da8ce78;
         margin-top: 40px;
     }
 
