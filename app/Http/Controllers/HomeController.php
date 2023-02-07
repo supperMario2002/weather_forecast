@@ -10,11 +10,13 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(APIRequest $apiWeather, Request $request){
-        $nameCyti = 'ha-noi';
+        $slugLocation = 'ha-noi';
+        $nameLocation = " Hà Nội";
         if($request->search_request!=null){
-            $nameCyti = $request->search_request;
+            $nameLocation = $request->search_name;
+            $slugLocation = $request->search_request;
         }
-        $dataWeather = $apiWeather->dayWeather($nameCyti);
+        $dataWeather = $apiWeather->dayWeather($slugLocation);
         $dataLocation = $dataWeather['location'];
         $dataCurrent = $dataWeather['current'];
         $dataForecast = $dataWeather['forecast']['forecastday'];
@@ -45,6 +47,6 @@ class HomeController extends Controller
             array_push($dataAir['main'], "#7e0023");
         }
 
-        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir'));
+        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation'));
     }
 }

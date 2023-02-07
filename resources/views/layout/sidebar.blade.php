@@ -21,8 +21,8 @@
         <li class="nav-item">
             <form action="{{route('home')}}" method="get">
                 <div class="input-group input-search-location">
-                    <input type="search" class="form-control rounded" id="search-location" placeholder="Nhập tên các tỉnh thành ..." />
-                    <input type="hidden" name="search-request" id="search-request">
+                    <input type="search" class="form-control rounded" name="search_name" id="search-location" placeholder="Nhập tên các tỉnh thành ..." />
+                    <input type="hidden" name="search_request" id="search-request">
                     <button type="submit" class="btn btn-search">Tìm kiếm</button>
                 </div>
                 <div class="data-search">
@@ -47,7 +47,9 @@
         , success: function(response, keywords) {
             $('#search-location').on('keyup', function() {
                 var keywords = $(this).val();
+                $("#search-location").val(keywords);
                 keywords = changKeyWordTokeywords(keywords);
+                $("#search-request").val(keywords);
                 var results = response.data.data.filter(item => item.slug.includes(keywords));
                 const boxSearch = $('#data-search');
                 boxSearch.html('');
