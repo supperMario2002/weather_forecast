@@ -10,7 +10,7 @@
 
             <div class="col-lg-6" style="padding: 0 15px;">
                 <h3>
-                    <i class="fas fa-map-marker-alt"></i> {{$dataLocation['name']}}
+                    <i class="fas fa-map-marker-alt"></i> {{$nameLocation}}
                     <span class="d-block">{{($currentDate->dayOfWeek == 7) ? "Chủ nhật" : "Thứ ".($currentDate->dayOfWeek+1)}}, {{$currentDate->format('d-m-Y')}}</span>
                 </h3>
                 <h1 class="mb-2">{{$dataCurrent['temp_c']}}°C </h1>
