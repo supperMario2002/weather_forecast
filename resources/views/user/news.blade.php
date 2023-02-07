@@ -8,11 +8,11 @@
 
         <div class="container">
             <div class="d-md-flex align-items-center justify-content-between">
-                <h1 class="m-0"> News
+                <h1 class="m-0"> Tin Tức
                 </h1>
                 <nav aria-label="breadcrumb m-0">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">News</li>
                     </ol>
                 </nav>
@@ -25,7 +25,7 @@
 
         <div class="new-page-toal mb-5">
             <div class="container">
-                <h1> Around the Weather News </h1>
+                <h1> Bản tin thời tiết các thành phố Bắc Bộ </h1>
 
 
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
@@ -33,85 +33,79 @@
 
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
-                                    <img src="images/ne1.jpg" alt="pn0" />
+                                    <img src="images/HN.jpg" alt="pn0" />
 
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
 
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 1 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 1 hours ago
+                                    </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Snow season tops the magic two-metre mark
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Thành phố Hà Nội
                             </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <p class="mt-1"> Sương mù giày đặc, không khí ở mức độ cao, Nguy hiểm đến tính mạng.</p>
                         </div>
                     </div>
 
 
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}">
+                            <a href="{{ route('news-detail') }}">
                                 <figure>
-                                    <img src="images/pexels-pierre-blach%c3%83%c2%a9-2901215.html" alt="pn1" />
-
+                                    <img src="images/HG.jpg" alt="pn1" />
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
-
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours ago
+                                    </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Where is the lightning capital of Australia?
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Hà Giang
                             </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <p class="mt-1"> Sáng sớm có sương mù nhiệt độ tăng dần đến trưa đạt đến 100 độ C.</p>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
-                                    <img src="images/ne2.jpg" alt="pn3" />
-
+                                    <img src="images/LS.jpg" alt="pn3" />
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
 
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours ago
+                                    </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Spring bushfire outlook </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Lạng Sơn </a>
+                            <p class="mt-1"> Ban ngày thời tiết ở Lạng Sơn thường nhiều nắng và rất nóng, Các tâm lý thời tiết ở Lạng Sơn bao gồm những cơn mưa nhẹ nhàng, nhiều nắng và nhiều gió.</p>
                         </div>
                     </div>
                     <div class="col">
-
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
-                                    <img src="images/pexels-photo-1850609.jpg" alt="pn2" />
-
+                                    <img src="images/BG.jpg" alt="pn3" />
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
 
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours ago
+                                    </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Black ice and white snow in the Blue
-                                Mountains </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Bắc Giang </a>
+                            <p class="mt-1"> Bắc Giang ngày càng ấm áp và đầy màu sắc, Một sương mù ánh sáng vàng bừng đẹp như những nụ hoa bông, Một sương mù ánh sáng vàng bừng đẹp như những nụ hoa bông.</p>
                         </div>
                     </div>
 
@@ -121,132 +115,115 @@
 
 
 
-                <h1 class="mt-5"> Viral Weather </h1>
+                <h1 class="mt-5"> Bản tin thời tiết các tỉnh Trung Bộ </h1>
 
 
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
 
-
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
-                                    <img src="images/news3.jpg" alt="pn9" />
+                                    <img src="images/LS.jpg" alt="pn3" />
+                                </figure>
+                            </a>
+                            <ul class="list-unstyled mb-2">
+
+                                <li>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours ago
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Thừa Thiên Huế </a>
+                            <p class="mt-1"> Ban ngày thời tiết ở Lạng Sơn thường nhiều nắng và rất nóng, Các tâm lý thời tiết ở Lạng Sơn bao gồm những cơn mưa nhẹ nhàng, nhiều nắng và nhiều gió.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="comon-part-video">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
+                                <figure>
+                                    <img src="images/BG.jpg" alt="pn3" />
+                                </figure>
+                            </a>
+                            <ul class="list-unstyled mb-2">
+
+                                <li>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours ago
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Quảng Trị </a>
+                            <p class="mt-1"> Bắc Giang ngày càng ấm áp và đầy màu sắc, Một sương mù ánh sáng vàng bừng đẹp như những nụ hoa bông, Một sương mù ánh sáng vàng bừng đẹp như những nụ hoa bông.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="comon-part-video">
+                            <a href="{{ route('news-detail') }}">
+                                <figure>
+                                    <img src="images/HG.jpg" alt="pn1" />
+                                </figure>
+                            </a>
+                            <ul class="list-unstyled mb-2">
+                                <li>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours ago
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Quảng Ngãi
+                            </a>
+                            <p class="mt-1"> Sáng sớm có sương mù nhiệt độ tăng dần đến trưa đạt đến 100 độ C.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="comon-part-video">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
+                                <figure>
+                                    <img src="images/HN.jpg" alt="pn0" />
 
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
 
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 1 hours ago
+                                    </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Sydney's coldest afternoon of the year </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Kon Tum
+                            </a>
+                            <p class="mt-1"> Sương mù giày đặc, không khí ở mức độ cao, Nguy hiểm đến tính mạng.</p>
                         </div>
                     </div>
-
-
-                    <div class="col">
-                        <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
-                                <figure>
-                                    <img src="images/ne3.jpg" alt="pn10" />
-
-                                </figure>
-                            </a>
-                            <ul class="list-unstyled mb-2">
-
-                                <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
-                                </li>
-                            </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Temperatures plunging in southeastern
-                                Australia </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
-                                <figure>
-                                    <img src="images/ne4.jpg" alt="pn" />
-
-                                </figure>
-                            </a>
-                            <ul class="list-unstyled mb-2">
-
-                                <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
-                                </li>
-                            </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Bitter cold snap catches kangaroos on the hop
-                            </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
-                        </div>
-                    </div>
-                    <div class="col">
-
-                        <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
-                                <figure>
-                                    <img src="images/ne5.jpg" alt="pn" />
-
-                                </figure>
-                            </a>
-                            <ul class="list-unstyled mb-2">
-
-                                <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
-                                </li>
-                            </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Climate Update - August 2022 </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
-                        </div>
-                    </div>
-
-
-
+                    
                 </div>
 
 
 
 
-                <h1 class="mt-5"> Space and Astronomy </h1>
+                <h1 class="mt-5"> Không gian và thiên văn học </h1>
 
 
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-
-
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
                                     <img src="images/sp1.jpg" alt="pn11" />
-
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
-
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours
+                                        ago </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Snow Season Outlook - 2022 </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Thiên Hà </a>
+                            <p class="mt-1"> Một thực tế đã được chứng minh từ lâu là người đọc sẽ bị phân tâm bởi nội dung có thể đọc được..</p>
                         </div>
                     </div>
-
-
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
                                     <img src="images/sp2.jpg" alt="pn13" />
 
@@ -255,72 +232,50 @@
                             <ul class="list-unstyled mb-2">
 
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours
+                                        ago </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Climate Update - Autumn 2022 </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Thám hiểm sao chổi </a>
+                            <p class="mt-1"> Những người thích ngắm sao sẽ có cơ hội phát hiện ra nó tốt hơn khi sử dụng ống nhòm, trong đó nó sẽ xuất hiện dưới dạng một vệt màu trắng mờ..</p>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
                                     <img src="images/sp3.jpg" alt="pn14" />
-
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
-
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours
+                                        ago </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Climate Update - May 2022 </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Sao thổ </a>
+                            <p class="mt-1"> Sao Thổ thay đổi góc nghiên 30 độ, lúc này Trái Đất của chúng ta sẽ bị văng ra khỏi hệ Mặt trời hoàn toàn, theo New Scientis...</p>
                         </div>
                     </div>
                     <div class="col">
-
                         <div class="comon-part-video">
-                            <a href="{{route('news-detail')}}" class="btn p-0">
+                            <a href="{{ route('news-detail') }}" class="btn p-0">
                                 <figure>
                                     <img src="images/sp4.jpg" alt="pn" />
-
                                 </figure>
                             </a>
                             <ul class="list-unstyled mb-2">
-
                                 <li>
-                                    <a href="{{route('news-detail')}}"> <i class="fas fa-calendar-week"></i> 2 hours ago </a>
+                                    <a href="{{ route('news-detail') }}"> <i class="fas fa-calendar-week"></i> 2 hours
+                                        ago </a>
                                 </li>
                             </ul>
-                            <a href="{{route('news-detail')}}" class="bg-titel mt-1"> Climate Update - April 2022 </a>
-                            <p class="mt-1"> It is a long established fact that a reader will be distracted by the
-                                readable content.</p>
+                            <a href="{{ route('news-detail') }}" class="bg-titel mt-1"> Lỗ đen vũ trụ </a>
+                            <p class="mt-1"> Trong trường hợp vũ trụ quan sát được, các nhà nghiên cứu ước tính có khoảng 40 tỉ tỉ hố đen, chiếm 1% trong tổng số vật chất thường của vũ trụ...</p>
                         </div>
                     </div>
-
-
-
                 </div>
-
-
-
-
             </div>
         </div>
-
-
-
-
-
-
-
-
     </section>
-
 @endsection
