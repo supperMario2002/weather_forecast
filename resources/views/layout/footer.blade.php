@@ -1,31 +1,29 @@
 <footer class="float-start w-100">
     <div class="container">
         <div class="row">
-            <div class="left-footer">
+            <div class="left-footer" style="width:100%;">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mt-4">
                     <div class="col">
-                        <h5>Reference</h5>
+                        <h5>Danh mục</h5>
                         <ul class="list-unstyled">
-                            <li><a href="category.html"> Legend </a></li>
-                            <li><a href="listing.html"> Glossary </a></li>
-                            <li><a href="listing.html"> World </a></li>
-                            <li><a href="listing.html"> Knowledge Base </a></li>
+                            <li><a href="category.html"> Dự báo thời tiết </a></li>
+                            <li><a href="listing.html"> Tin tức </a></li>
+                            <li><a href="listing.html"> Bản đồ </a></li>
+                            <li><a href="listing.html"> Liên hệ </a></li>
                         </ul>
                     </div>
                     <div class="col">
-                        <h5>Company</h5>
+                        <h5>Công ty</h5>
                         <ul class="list-unstyled">
-                            <li><a href="blogs.html">Photo </a></li>
-                            <li><a href="live.html"> News </a></li>
-                            <li><a href="contactus.html"> Conatct Us </a></li>
+                            <li><a href="#">Super Mario </a></li>
                         </ul>
                     </div>
                     <div class="col">
-                        <h5>Support</h5>
+                        <h5>Hỗ trợ</h5>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-phone-square-alt"></i> 1800-250-5260</li>
-                            <li><i class="fas fa-envelope"></i> support@example.com</li>
-                            <li><i class="fas fa-fax"></i> support@example.com</li>
+                            <li><i class="fas fa-phone-square-alt"></i>0357143496</li>
+                            <li><i class="fas fa-envelope"></i>toiroiluomoi123@gmail.com</li>
+                            <li><i class="fas fa-fax"></i>toiroiluomoi123@gmail.com</li>
                         </ul>
                     </div>
                     <div class="col">
@@ -33,8 +31,8 @@
                             <img src="images/logo-white.png" alt="logo" />
                         </a>
                         <p class="mt-3">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem
+                            Anh ơi, nắng ấm xa dần
+                            Đông sang gió lạnh chỉ cần có anh.
                         </p>
                     </div>
                 </div>
@@ -56,3 +54,4 @@
         </div>
     </div>
 </footer>
+
