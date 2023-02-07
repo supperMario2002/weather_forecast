@@ -25,7 +25,6 @@ use App\Http\Controllers\ContactController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/news-detail', [NewsDetailController::class, 'index'])->name('news-detail');
 Route::get('/map', [MapController::class, 'index'])->name('map');
