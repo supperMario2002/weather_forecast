@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
 use App\Services\APIRequest;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
-    public function index(APIRequest $apiWeather){
-
-        $dataWeather = $apiWeather->dayWeather();
+    public function index(APIRequest $apiWeather, Request $request){
+        $nameCyti = 'ha-noi';
+        if($request->search_request!=null){
+            $nameCyti = $request->search_request;
+        }
+        $dataWeather = $apiWeather->dayWeather($nameCyti);
         $dataLocation = $dataWeather['location'];
         $dataCurrent = $dataWeather['current'];
         $dataForecast = $dataWeather['forecast']['forecastday'];
@@ -39,6 +44,7 @@ class HomeController extends Controller
             $dataAir['main']['aqi'] = "Cảnh báo nguy hại sức khỏe nghiêm trọng. Đa số mọi người đều bị ảnh hưởng.";
             array_push($dataAir['main'], "#7e0023");
         }
+
         return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir'));
     }
 }
