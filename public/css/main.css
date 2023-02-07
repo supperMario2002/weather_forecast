@@ -2169,6 +2169,15 @@ button.close-menu svg{
 
 .data-search ul li:hover{
 	background-color: #a8a5a5a4;
+	cursor: pointer;
 }
 
+.view-all{
+	color: #096589;
+	text-align: center;
+}
+#data-search{
+	max-height: 240px;
+	overflow-y: scroll;
+}
 /* end navbar */
