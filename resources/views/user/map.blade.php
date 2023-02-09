@@ -23,7 +23,7 @@
 
     <section class="body-part float-start w-100">
         <div class="container">
-            <iframe width="1280" height="720" src="https://embed.windy.com/embed2.html?lat=4.960&lon=120.234&detailLat=4.960&detailLon=120.234&width=1280&height=720&zoom=4&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+            <iframe width="1280" height="720" src="https://embed.windy.com/embed2.html?lat=6.926&lon=106.655&detailLat=10.833&detailLon=106.658&width=1280&height=720&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
         </div>
     </section>
 

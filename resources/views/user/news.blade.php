@@ -12,8 +12,8 @@
                 </h1>
                 <nav aria-label="breadcrumb m-0">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">News</li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Trang chủ</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tin tức</li>
                     </ol>
                 </nav>
             </div>
