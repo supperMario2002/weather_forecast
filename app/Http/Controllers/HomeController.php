@@ -20,7 +20,7 @@ class HomeController extends Controller
         $dataLocation = $dataWeather['location'];
         $dataCurrent = $dataWeather['current'];
         $dataForecast = $dataWeather['forecast']['forecastday'];
-        // dd($dataWeather);
+        // dd($dataLocation);
 
         $currentDate = Carbon::now();
         // call api air
@@ -46,7 +46,6 @@ class HomeController extends Controller
             $dataAir['main']['aqi'] = "Cảnh báo nguy hại sức khỏe nghiêm trọng. Đa số mọi người đều bị ảnh hưởng.";
             array_push($dataAir['main'], "#7e0023");
         }
-
         return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation'));
     }
 }
