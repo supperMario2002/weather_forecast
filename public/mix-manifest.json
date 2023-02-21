@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
+    "/css/main.css": "/css/main.css",
+    "/js/main.js": "/js/main.js",
     "/images/1280px-World_map_with_points.svg.png": "/images/1280px-World_map_with_points.svg.png",
     "/images/5643142.png": "/images/5643142.png",
     "/images/Algeria.jpg": "/images/Algeria.jpg",
