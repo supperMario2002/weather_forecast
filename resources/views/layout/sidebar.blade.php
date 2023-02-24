@@ -1,4 +1,4 @@
-<a class="navbar-brand" href="index.html">
+<a class="navbar-brand" href="{{ route('home') }}">
     <img src="{{ asset('images/logo.png') }}" alt="logo" />
 </a>
 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu">

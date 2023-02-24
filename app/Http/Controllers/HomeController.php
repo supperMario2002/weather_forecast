@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(APIRequest $apiWeather, Request $request){
+        if($request->ajax()){
+            $key = $request->keySearch;
+            return $apiWeather->currentWeather($key);
+        }
         $slugLocation = 'ha-noi';
         $nameLocation = " Hà Nội";
         if($request->search_request!=null){
