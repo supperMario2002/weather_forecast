@@ -19,7 +19,7 @@
             <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
         </li>
         <li class="nav-item">
-            <form action="{{route('home')}}" method="get">
+            <form action="" method="get">
                 <div class="input-group input-search-location">
                     <input type="search" class="form-control rounded" name="search_name" id="search-location" placeholder="Nhập tên các tỉnh thành ..." />
                     <input type="hidden" name="search_request" id="search-request">
@@ -69,6 +69,11 @@
             });
         }
     });
+
+
+// js
+// get url
+// form -> set attr -> action url current
 
 </script>
 @endpush
