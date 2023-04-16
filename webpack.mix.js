@@ -11,9 +11,3 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.copy('resources/css/main.css', 'public/css');
-//js
-mix.copy('resources/js/main.js', 'public/js')
-
-// image
-mix.copy('resources/images', 'public/images')
