@@ -25,9 +25,13 @@ body {
 	color:#333333;
 	height: 100%;
 }
-.cApp {
-	/* background: url(../images/rainy-day_l-desktop.jpeg) no-repeat; */
-	/* background: url(../images/cloudy-night_l-desktop.jpeg) no-repeat; */
+
+.bg-night{
+	background-image: url(../images/cloudy-night_l-desktop.jpeg) !important;
+	background-size: cover;
+}
+
+.bg-day{
 	background-image: url(../images/cloudy-day_l-desktop.jpeg) !important;
 	background-size: cover;
 }
@@ -2183,3 +2187,4 @@ button.close-menu svg{
 	overflow-y: scroll;
 }
 /* end navbar */
+

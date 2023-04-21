@@ -54,6 +54,6 @@ class HomeController extends Controller
             $dataAir['main']['aqi'] = "Cảnh báo nguy hại sức khỏe nghiêm trọng. Đa số mọi người đều bị ảnh hưởng.";
             array_push($dataAir['main'], "#7e0023");
         }
-        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation','textGpt'));
+        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation'));
     }
 }
