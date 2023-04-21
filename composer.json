@@ -5,13 +5,13 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
-        "fruitcake/laravel-cors": "^2.0",
+        "php": "^7.4|^8.0",
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "nesbot/carbon": "^2.65"
+        "nesbot/carbon": "^2.65",
+        "orhanerday/open-ai": "^4.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -6,13 +6,14 @@ use GuzzleHttp\Client;
 use Carbon\Carbon;
 use App\Services\APIRequest;
 use Illuminate\Http\Request;
+use Orhanerday\OpenAi\OpenAi;
 
 class HomeController extends Controller
 {
-    public function index(APIRequest $apiWeather, Request $request){
+    public function index(APIRequest $api, Request $request){
         if($request->ajax()){
             $key = $request->keySearch;
-            return $apiWeather->currentWeather($key);
+            return $api->currentWeather($key);
         }
         $slugLocation = 'ha-noi';
         $nameLocation = " Hà Nội";
@@ -20,16 +21,19 @@ class HomeController extends Controller
             $nameLocation = $request->search_name;
             $slugLocation = $request->search_request;
         }
-        $dataWeather = $apiWeather->dayWeather($slugLocation);
+        $dataWeather = $api->dayWeather($slugLocation);
         $dataLocation = $dataWeather['location'];
         $dataCurrent = $dataWeather['current'];
         $dataForecast = $dataWeather['forecast']['forecastday'];
-        // dd($dataLocation);
+        // dd($dataWeather);
 
         $currentDate = Carbon::now();
         // call api air
-        $data2 = $apiWeather->currentAir($dataLocation['lat'], $dataLocation['lon']);
+        $data2 = $api->currentAir($dataLocation['lat'], $dataLocation['lon']);
         $dataAir = $data2['list'][0];
+        
+        // $textGpt = $api->gpt();
+
         if($dataAir['main']['aqi'] == 1 ){
             $dataAir['main']['aqi'] = "Chất lượng không khí được xem là đạt tiêu chuẩn, và ô nhiễm không khí coi như không hoặc gây rất ít nguy hiểm";
             array_push($dataAir['main'], "#009966");
@@ -50,6 +54,6 @@ class HomeController extends Controller
             $dataAir['main']['aqi'] = "Cảnh báo nguy hại sức khỏe nghiêm trọng. Đa số mọi người đều bị ảnh hưởng.";
             array_push($dataAir['main'], "#7e0023");
         }
-        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation'));
+        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation','textGpt'));
     }
 }

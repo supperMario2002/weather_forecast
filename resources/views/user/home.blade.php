@@ -24,7 +24,7 @@
                         </li>
                         <li>
                             <div class="right-li">Tốc độ gió <span>{{ $dataCurrent['wind_kph'] }}Km/h</span></div>
-                            <div class="left-li">Cám giác như <span>{{ $dataCurrent['feelslike_c'] }}°C</span></div>
+                            <div class="left-li">Cảm giác như <span>{{ $dataCurrent['feelslike_c'] }}°C</span></div>
                         </li>
                         <li>
                             <div class="right-li">Mây <span>{{ round($dataCurrent['cloud']) }}%</span></div>
@@ -822,8 +822,10 @@
                     </div>
                 </div>
             </div>
+            <div>
+                {{$textGpt}}
+            </div>
         </section>
-
     </section>
 
     <style>
