@@ -1096,7 +1096,7 @@
         }
         // set background 
         if(hour > 18 && hour < 5){
-            $('body').addClass("bg-night");
+            $('body').addClass("bg-day");
             
         }else{
             $('body').addClass("bg-night");
