@@ -3,7 +3,6 @@
 @section('name', 'Trang chủ')
 
 @section('content')
-
 <section class="float-start w-100 banner-part1">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 top-part-banner1">
@@ -154,6 +153,10 @@
                 @endif
                 @endforeach
                 @endforeach
+            </div>
+            <div>
+                <textarea id="ms-gpt" cols="100" rows="10" style="background-color: #FFFFFF"></textarea>
+                <button id="gpt">Đưa ra lời khuyên</button>
             </div>
             <div class="weather-sild1 owl-carousel hourlyForecast" id="dayForecast">
                 @foreach ($dataForecast as $key => $day)
@@ -1071,7 +1074,7 @@
         })
 
     })
-    
+
     function oClock() {
         const time = new Date();
         var hour = time.getHours();
@@ -1086,26 +1089,44 @@
         if (sencond < 10) {
             sencond = "0" + sencond
         }
-        if(hour > 12){
+        if (hour > 12) {
             param = "pm"
             $('body').addClass("bg-night");
-            
-        }else{
+
+        } else {
             param = "am"
             $('body').addClass("bg-night");
         }
         // set background 
-        if(hour > 18 && hour < 5){
-            $('body').addClass("bg-day");
-            
-        }else{
+        if (hour > 18 && hour < 5) {
             $('body').addClass("bg-night");
+
+        } else {
+            $('body').addClass("bg-day");
         }
-        text = hour + ":" + minus +":"+ sencond +" "+param
+        text = hour + ":" + minus + ":" + sencond + " " + param
         $('#oclock').html(text)
         setTimeout(oClock, 1000)
     }
     oClock()
+
+    $("#gpt").click(function() {
+        $("#ms-gpt").text('');
+        var eventSource = new EventSource("/gpt");
+        var div = document.getElementById('ms-gpt');
+
+
+        eventSource.onmessage = function(e) {
+            if (e.data == "[DONE]") {
+                div.innerHTML += " ";
+            }
+            div.innerHTML += JSON.parse(e.data).choices[0].text;
+        };
+        eventSource.onerror = function(e) {
+            console.log(e);
+            eventSource.close();
+        };
+    });
 
 </script>
 @endpush

@@ -31,8 +31,6 @@ class HomeController extends Controller
         // call api air
         $data2 = $api->currentAir($dataLocation['lat'], $dataLocation['lon']);
         $dataAir = $data2['list'][0];
-        
-        // $textGpt = $api->gpt();
 
         if($dataAir['main']['aqi'] == 1 ){
             $dataAir['main']['aqi'] = "Chất lượng không khí được xem là đạt tiêu chuẩn, và ô nhiễm không khí coi như không hoặc gây rất ít nguy hiểm";
@@ -54,6 +52,11 @@ class HomeController extends Controller
             $dataAir['main']['aqi'] = "Cảnh báo nguy hại sức khỏe nghiêm trọng. Đa số mọi người đều bị ảnh hưởng.";
             array_push($dataAir['main'], "#7e0023");
         }
-        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation'));
+        return view('user.home', compact('dataCurrent','dataLocation','dataForecast', 'currentDate','dataAir','nameLocation',));
+    }
+
+    public function gpt(APIRequest $api){
+
+        return $api->gpt();
     }
 }
