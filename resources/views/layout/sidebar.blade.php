@@ -19,7 +19,7 @@
             <a class="nav-link" href="{{ route('contact') }}">Liên hệ</a>
         </li>
         <li class="nav-item">
-            <form action="{{route('home')}}" method="get">
+            <form action="" method="get">
                 <div class="input-group input-search-location">
                     <input type="search" class="form-control rounded" name="search_name" id="search-location" placeholder="Nhập tên các tỉnh thành ..." />
                     <input type="hidden" name="search_request" id="search-request">
@@ -42,7 +42,8 @@
     })
     $.ajax({
         type: "GET"
-        , url: "https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1"
+        // , url: "https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1"
+        , url: "https://provinces.open-api.vn/api/p/"
         , dataType: "json"
         , success: function(response, keywords) {
             $('#search-location').on('keyup', function() {
@@ -50,25 +51,37 @@
                 $("#search-location").val(keywords);
                 keywords = changKeyWordTokeywords(keywords);
                 $("#search-request").val(keywords);
-                var results = response.data.data.filter(item => item.slug.includes(keywords));
+                var results = response.filter(item => item.codename.includes(keywords));
                 const boxSearch = $('#data-search');
                 boxSearch.html('');
                 if (keywords.length > 0) {
                     results.forEach(element => {
-                        boxSearch.append(`<li class="provinces" id="${element.slug}">${element.name}</li>`)
+                        boxSearch.append(`<li class="provinces" id="${element.codename}">${element.name}</li>`)
                     });
                 }
 
                 var provinces = $(".provinces");
                 provinces.click(function() {
                     console.log(this.innerHTML);
+                    var id = this.id;
+                    if(id.includes("tinh_")){
+                        id = id.slice(5)
+                    }
+                    if(id.includes("thanh_pho_")){
+                        id = id.slice(10)
+                    }
                     $("#search-location").val(this.innerHTML);
-                    $("#search-request").val(this.id);
+                    $("#search-request").val(id);
                     $("#data-search").hide();
                 })
             });
         }
     });
+
+
+// js
+// get url
+// form -> set attr -> action url current
 
 </script>
 @endpush

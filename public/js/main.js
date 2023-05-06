@@ -15,7 +15,7 @@ function changKeyWordTokeywords(keywords) {
         ""
     );
     //Đổi khoảng trắng thành ký tự gạch ngang
-    keywords = keywords.replace(/ /gi, "-");
+    keywords = keywords.replace(/ /gi, "_");
     //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
     //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
     keywords = keywords.replace(/\-\-\-\-\-/gi, "-");
