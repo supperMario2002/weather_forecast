@@ -2188,3 +2188,9 @@ button.close-menu svg{
 }
 /* end navbar */
 
+.text-over {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+

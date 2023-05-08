@@ -167,17 +167,17 @@
                             </div>
                             <div><img src="https:{{$day['hour'][8]['condition']['icon']}}" width="64" alt=""></div>
                         </div>
-                        <p class="m-0">{{$day['hour'][8]['condition']['text']}}</p>
+                        <p title="acc" class="m-0 text-over">{{$day['hour'][8]['condition']['text']}}</p>
                     </div>
                     <div class="cnight">
                         <div class="cnight-content">
                             <div class="chils">
                                 <span>Tối</span>
-                                <p class="m-0">{{$day['hour'][20]['temp_c']}}°C</p>
+                                <p class="m-0">{{ $day['hour'][20]['temp_c'] }}°C</p>
                             </div>
                             <div><img src="https:{{$day['hour'][20]['condition']['icon']}}" width="64" alt=""></div>
                         </div>
-                        <p class="m-0">{{$day['hour'][20]['condition']['text']}}</p>
+                        <p class="m-0">{{ $day['hour'][20]['condition']['text'] }}</p>
                     </div>
                     @elseif(date('d-m-Y', strtotime($day['date'])) > date('d-m-Y', strtotime($currentDate)))
                     <div class="cart-date">
@@ -187,11 +187,11 @@
                         <div class="cday-content">
                             <div class="chils">
                                 <span>Sáng</span>
-                                <p class="m-0">{{$day['hour'][8]['temp_c']}}°C</p>
+                                <p class="m-0">{{ $day['hour'][8]['temp_c'] }}°C</p>
                             </div>
                             <div><img src="https:{{$day['hour'][8]['condition']['icon']}}" width="64" alt=""></div>
                         </div>
-                        <p class="m-0">{{$day['hour'][8]['condition']['text']}}</p>
+                        <p class="m-0">{{ $day['hour'][8]['condition']['text'] }}</p>
                     </div>
                     <div class="cnight">
                         <div class="cnight-content">
@@ -207,6 +207,11 @@
                 </div>
                 @endforeach
             </div>
+            <div>
+                <textarea class="" id="ms-gpt" cols="100" rows="10" style="background-color: #FFFFFF"></textarea>
+                <button id="gpt" class="btn btn-info">Đưa ra lời khuyên</button>
+            </div>
+            
         </div>
     </div>
 </section>
@@ -440,10 +445,10 @@
 
                                 <div class="location-wheather text-center">
                                     <div class="card mb-3">
-                                        <a class="text-decoration-none text-light" href="/quang-tri">
+                                        <a class="text-decoration-none text-light">
                                             <h3 class="card-city-title">Quảng Trị</h3>
                                             <div class="card-city-body">
-                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Quảng Trị" title="Clouds">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Tây Ninh" title="Clouds">
                                                 <div class="precipitation" title="Lượng mưa">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
                                                         <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
@@ -471,10 +476,10 @@
 
                                 <div class="location-wheather text-center">
                                     <div class="card mb-3">
-                                        <a class="text-decoration-none text-light" href="/da-nang">
+                                        <a class="text-decoration-none text-light">
                                             <h3 class="card-city-title">Đà Nẵng</h3>
                                             <div class="card-city-body">
-                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Đà Nẵng" title="Clouds">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Cần Thơ" title="Clouds">
                                                 <div class="precipitation" title="Lượng mưa">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
                                                         <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
@@ -533,10 +538,10 @@
 
                                 <div class="location-wheather text-center">
                                     <div class="card mb-3">
-                                        <a class="text-decoration-none text-light" href="/binh-thuan">
+                                        <a class="text-decoration-none text-light">
                                             <h3 class="card-city-title">Bình Thuận</h3>
                                             <div class="card-city-body">
-                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Bình Thuận" title="Clouds">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Vĩnh Long" title="Clouds">
                                                 <div class="precipitation" title="Lượng mưa">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
                                                         <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
@@ -1033,6 +1038,89 @@
         $("#hourlyForecast").show();
         $("#dayForecast").hide();
     })
+
+    $(".forecast").click(function() {
+        formCity.css("backgroundColor", "#041d2a78");
+        $('#spin').addClass('spinner-7')
+        setTimeout(() => {
+            formCity.css("backgroundColor", "rgb(64,148,202)");
+            $('#spin').removeClass('spinner-7')
+        }, 1000);
+        var nameForecast = $(this).find('.card-city-title').text()
+        var keySearch = changKeyWordTokeywords(nameForecast)
+        $('#cb-location').text(nameForecast)
+        $.ajax({
+            url: '{{ url(' / ') }}'
+            , method: 'get'
+            , data: {
+                'keySearch': keySearch
+            }
+            , success: function(data) {
+                console.log(data);
+                $('#cb-temp').text(data.current.temp_c + "°")
+                $('#cb-feeslike').text(data.current.feelslike_c + "°C")
+                $('#cb-condition').text(data.current.condition.text)
+                $('#cb-humidity').text(data.current.humidity + "%")
+                $('#cb-vis').text(data.current.vis_km + "Km")
+                $('#cb-wind').text(data.current.wind_kph + "Km/h")
+                $('#cb-uv').text(data.current.uv)
+            }
+        })
+
+    })
+
+    function oClock() {
+        const time = new Date();
+        var hour = time.getHours();
+        var minus = time.getMinutes();
+        var sencond = time.getSeconds();
+        if (hour < 10) {
+            hour = "0" + hour
+        }
+        if (minus < 10) {
+            minus = "0" + minus
+        }
+        if (sencond < 10) {
+            sencond = "0" + sencond
+        }
+        if (hour > 12) {
+            param = "pm"
+            $('body').addClass("bg-night");
+
+        } else {
+            param = "am"
+            $('body').addClass("bg-night");
+        }
+        // set background 
+        if (hour > 18 && hour < 5) {
+            $('body').addClass("bg-night");
+
+        } else {
+            $('body').addClass("bg-day");
+        }
+        text = hour + ":" + minus + ":" + sencond + " " + param
+        $('#oclock').html(text)
+        setTimeout(oClock, 1000)
+    }
+    oClock()
+
+    $("#gpt").click(function() {
+        $("#ms-gpt").text('');
+        var eventSource = new EventSource("/gpt");
+        var div = document.getElementById('ms-gpt');
+
+
+        eventSource.onmessage = function(e) {
+            if (e.data == "[DONE]") {
+                div.innerHTML += " ";
+            }
+            div.innerHTML += JSON.parse(e.data).choices[0].text;
+        };
+        eventSource.onerror = function(e) {
+            console.log(e);
+            eventSource.close();
+        };
+    });
 
 </script>
 @endpush

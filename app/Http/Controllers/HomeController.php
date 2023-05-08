@@ -13,6 +13,7 @@ class HomeController extends Controller
     public function index(APIRequest $api, Request $request){
         if($request->ajax()){
             $key = $request->keySearch;
+            // dd($key);
             return $api->currentWeather($key);
         }
         $slugLocation = 'ha-noi';
