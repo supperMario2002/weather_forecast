@@ -108,125 +108,120 @@
                                         <p>Cảm giác: {{ round($hourly['feelslike_c']) }}°C</p>
                                         <p>{{ $hourly['condition']['text'] }}</p>
 
-                                    </div>
-                                    <ul class="cart-detals">
-                                        <li class="bg-f1">
-                                            <span class="name-att">Độ ẩm :</span>
-                                            <span class="val">{{ $hourly['humidity'] }}%</span>
-                                        </li>
-                                        <li>
-                                            <span>Gió :</span class="name-att">
-                                            <span class="val">{{ $hourly['wind_kph'] }}Km/h</span>
-                                        </li>
-                                        <li class="bg-f1">
-                                            <span class="name-att">Mây :</span>
-                                            <span class="val">{{ $hourly['cloud'] }}%</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            @elseif(date('d-m-Y H', strtotime($hourly['time'])) > date('d-m-Y H', strtotime($currentDate)))
-                                <div class="hourly-cart">
-                                    <div class="cart-date">
-                                        <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">
-                                            {{ date('H:i', strtotime($hourly['time'])) }}</p>
-                                    </div>
-                                    <div class="cart-condition">
-                                        <div class="cart-condition-nav">
-                                            <h4>{{ round($hourly['temp_c']) }}°C</h4>
-                                            <img src="https:{{ $hourly['condition']['icon'] }}" alt="">
-                                        </div>
-                                        <p>Cảm giác: {{ round($hourly['feelslike_c']) }}°C</p>
-                                        <p>{{ $hourly['condition']['text'] }}</p>
-
-                                    </div>
-                                    <ul class="cart-detals">
-                                        <li class="bg-f1">
-                                            <span class="name-att">Độ ẩm :</span>
-                                            <span class="val">{{ $hourly['humidity'] }}%</span>
-                                        </li>
-                                        <li>
-                                            <span>Gió :</span class="name-att">
-                                            <span class="val">{{ $hourly['wind_kph'] }}Km/h</span>
-                                        </li>
-                                        <li class="bg-f1">
-                                            <span class="name-att">Mây :</span>
-                                            <span class="val">{{ $hourly['cloud'] }}%</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            @endif
-                        @endforeach
-                    @endforeach
+                    </div>
+                    <ul class="cart-detals">
+                        <li class="bg-f1">
+                            <span class="name-att">Độ ẩm :</span>
+                            <span class="val">{{ $hourly['humidity'] }}%</span>
+                        </li>
+                        <li>
+                            <span>Gió :</span class="name-att">
+                            <span class="val">{{ $hourly['wind_kph'] }}Km/h</span>
+                        </li>
+                        <li class="bg-f1">
+                            <span class="name-att">Mây :</span>
+                            <span class="val">{{ $hourly['cloud'] }}%</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="weather-sild1 owl-carousel hourlyForecast" id="dayForecast">
-                    @foreach ($dataForecast as $key => $day)
-                        <div class="hourly-cart">
-                            @if (date('d-m-Y', strtotime($day['date'])) == date('d-m-Y', strtotime($currentDate)))
-                                <div class="cart-date">
-                                    <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">Hôm nay</p>
-                                </div>
-                                <div class="cday">
-                                    <div class="cday-content">
-                                        <div class="chils">
-                                            <span>Sáng</span>
-                                            <p class="m-0">{{ $day['hour'][8]['temp_c'] }}°C</p>
-                                        </div>
-                                        <div><img src="https:{{ $day['hour'][8]['condition']['icon'] }}" width="64"
-                                                alt=""></div>
-                                    </div>
-                                    <p title="acc" class="m-0 text-over">{{ $day['hour'][8]['condition']['text'] }}</p>
-                                </div>
-                                <div class="cnight">
-                                    <div class="cnight-content">
-                                        <div class="chils">
-                                            <span>Tối</span>
-                                            <p class="m-0 " style="">{{ $day['hour'][20]['temp_c'] }}°C</p>
-                                        </div>
-                                        <div><img src="https:{{ $day['hour'][20]['condition']['icon'] }}" width="64"
-                                                alt=""></div>
-                                    </div>
-                                    <p title="acc" class="m-0 text-over">{{ $day['hour'][20]['condition']['text'] }}
-                                    </p>
-                                </div>
-                            @elseif(date('d-m-Y', strtotime($day['date'])) > date('d-m-Y', strtotime($currentDate)))
-                                <div class="cart-date">
-                                    <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">
-                                        {{ date('d-m-Y', strtotime($day['date'])) }}</p>
-                                </div>
-                                <div class="cday">
-                                    <div class="cday-content">
-                                        <div class="chils">
-                                            <span>Sáng</span>
-                                            <p class="m-0 ">{{ $day['hour'][8]['temp_c'] }}°C</p>
-                                        </div>
-                                        <div><img src="https:{{ $day['hour'][8]['condition']['icon'] }}" width="64"
-                                                alt=""></div>
-                                    </div>
-                                    <p class="m-0 text-over">{{ $day['hour'][8]['condition']['text'] }}</p>
-                                </div>
-                                <div class="cnight">
-                                    <div class="cnight-content">
-                                        <div class="chils">
-                                            <span>Tối</span>
-                                            <p class="m-0">{{ $day['hour'][20]['temp_c'] }}°C</p>
-                                        </div>
-                                        <div><img src="https:{{ $day['hour'][20]['condition']['icon'] }}" width="64"
-                                                alt=""></div>
-                                    </div>
-                                    <p class="m-0">{{ $day['hour'][20]['condition']['text'] }}</p>
-                                </div>
-                            @endif
+                @elseif(date('d-m-Y H', strtotime($hourly['time'])) > date('d-m-Y H', strtotime($currentDate)))
+                <div class="hourly-cart">
+                    <div class="cart-date">
+                        <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">
+                            {{ date('H:i', strtotime($hourly['time'])) }}</p>
+                    </div>
+                    <div class="cart-condition">
+                        <div class="cart-condition-nav">
+                            <h4>{{ round($hourly['temp_c']) }}°C</h4>
+                            <img src="https:{{ $hourly['condition']['icon'] }}" alt="">
                         </div>
-                    @endforeach
-                </div>
-                <div>
-                    <textarea class="" id="ms-gpt" cols="100" rows="10" style="background-color: #FFFFFF"></textarea>
-                    <button id="gpt" class="btn btn-info">Đưa ra lời khuyên</button>
-                </div>
+                        <p>Cảm giác: {{ round($hourly['feelslike_c']) }}°C</p>
+                        <p>{{ $hourly['condition']['text'] }}</p>
 
+                    </div>
+                    <ul class="cart-detals">
+                        <li class="bg-f1">
+                            <span class="name-att">Độ ẩm :</span>
+                            <span class="val">{{ $hourly['humidity'] }}%</span>
+                        </li>
+                        <li>
+                            <span>Gió :</span class="name-att">
+                            <span class="val">{{ $hourly['wind_kph'] }}Km/h</span>
+                        </li>
+                        <li class="bg-f1">
+                            <span class="name-att">Mây :</span>
+                            <span class="val">{{ $hourly['cloud'] }}%</span>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                @endforeach
+                @endforeach
             </div>
+            <div class="weather-sild1 owl-carousel hourlyForecast" id="dayForecast">
+                @foreach ($dataForecast as $key => $day)
+                <div class="hourly-cart">
+                    @if (date('d-m-Y', strtotime($day['date'])) == date('d-m-Y', strtotime($currentDate)))
+                    <div class="cart-date">
+                        <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">Hôm nay</p>
+                    </div>
+                    <div class="cday">
+                        <div class="cday-content">
+                            <div class="chils">
+                                <span>Sáng</span>
+                                <p class="m-0">{{ $day['hour'][8]['temp_c'] }}°C</p>
+                            </div>
+                            <div><img src="https:{{ $day['hour'][8]['condition']['icon'] }}" width="64" alt=""></div>
+                        </div>
+                        <p title="acc" class="m-0 text-over">{{ $day['hour'][8]['condition']['text'] }}</p>
+                    </div>
+                    <div class="cnight">
+                        <div class="cnight-content">
+                            <div class="chils">
+                                <span>Tối</span>
+                                <p class="m-0 " style="">{{ $day['hour'][20]['temp_c'] }}°C</p>
+                            </div>
+                            <div><img src="https:{{ $day['hour'][20]['condition']['icon'] }}" width="64" alt=""></div>
+                        </div>
+                        <p title="acc" class="m-0 text-over">{{ $day['hour'][20]['condition']['text'] }}</p>
+                    </div>
+                    @elseif(date('d-m-Y', strtotime($day['date'])) > date('d-m-Y', strtotime($currentDate)))
+                    <div class="cart-date">
+                        <p style="margin: 0; font-weight: 600; text-align: center;font-size: 20px">
+                            {{ date('d-m-Y', strtotime($day['date'])) }}</p>
+                    </div>
+                    <div class="cday">
+                        <div class="cday-content">
+                            <div class="chils">
+                                <span>Sáng</span>
+                                <p class="m-0 ">{{ $day['hour'][8]['temp_c'] }}°C</p>
+                            </div>
+                            <div><img src="https:{{ $day['hour'][8]['condition']['icon'] }}" width="64" alt=""></div>
+                        </div>
+                        <p class="m-0 text-over">{{ $day['hour'][8]['condition']['text'] }}</p>
+                    </div>
+                    <div class="cnight">
+                        <div class="cnight-content">
+                            <div class="chils">
+                                <span>Tối</span>
+                                <p class="m-0">{{ $day['hour'][20]['temp_c'] }}°C</p>
+                            </div>
+                            <div><img src="https:{{ $day['hour'][20]['condition']['icon'] }}" width="64" alt=""></div>
+                        </div>
+                        <p class="m-0">{{ $day['hour'][20]['condition']['text'] }}</p>
+                    </div>
+                    @endif
+                </div>
+                @endforeach
+            </div>
+            <div>
+                <textarea class="" id="ms-gpt" cols="100" rows="10" style="background-color: #FFFFFF"></textarea>
+                <button id="gpt" class="btn btn-info">Đưa ra lời khuyên</button>
+            </div>
+            
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="body-part float-start w-100">
         <section class="section-container section-wheather py-3">
@@ -238,31 +233,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Hà Giang</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Hà Giang" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        98 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Hà Giang</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Hà Giang" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    98 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Nhiều mây
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">20°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">20°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Nhiều mây
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">20°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">20°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -273,31 +264,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Cao Bằng</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Cao Bằng" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        99 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Cao Bằng</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Cao Bằng" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    99 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Nhiều mây
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">18°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">19°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Nhiều mây
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">18°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">19°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -308,31 +295,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Lào Cai</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Lào Cai" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        94 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Lào Cai</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Lào Cai" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    94 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Nhiều mây
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">21°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">21°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Nhiều mây
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">21°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">21°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -343,100 +326,57 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Điện Biên</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Điện Biên" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        92 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Điện Biên</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Điện Biên" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    92 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Nhiều mây
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">19°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">19°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Nhiều mây
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">19°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">19°</p>
+                                            </div>
 
                                             </a>
                                         </div>
                                     </div>
 
-                                </article>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <article class="forecast">
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Hà Nội</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/50n@2x.png"
-                                                        alt="Hà Nội" title="Mist">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        94 %
-                                                    </div>
+                            </article>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <article class="forecast">
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Hà Nội</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/50n@2x.png" alt="Hà Nội" title="Mist">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    94 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Sương mờ
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">21°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">22°</p>
-                                                </div>
-
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <article class="forecast">
-
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Hải Phòng</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/50n@2x.png"
-                                                        alt="Hải Phòng" title="Mist">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        100 %
-                                                    </div>
-                                                </div>
-                                                <p class="mb-0">
-                                                    Sương mờ
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">20°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">21°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Sương mờ
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">21°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">22°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -447,31 +387,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Thanh Hóa</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Thanh Hóa" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        95 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Hải Phòng</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/50n@2x.png" alt="Hải Phòng" title="Mist">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    100 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Nhiều mây
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">21°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">22°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Sương mờ
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">20°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">21°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -482,31 +418,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Tây Ninh</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Tây Ninh" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        96 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Thanh Hóa</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Thanh Hóa" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    95 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Mây cụm
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">22°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">23°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Nhiều mây
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">21°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">22°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -517,31 +449,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Cần Thơ</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Cần Thơ" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        88 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Tây Ninh</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Tây Ninh" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    96 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Mây cụm
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">24°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">25°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Mây cụm
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">22°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">23°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -552,31 +480,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Quảng Ngãi</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Quảng Ngãi" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        90 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Cần Thơ</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Cần Thơ" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    88 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Nhiều mây
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">22°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">23°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Mây cụm
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">24°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">25°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -587,31 +511,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Vĩnh Long</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png"
-                                                        alt="Vĩnh Long" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        83 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Quảng Ngãi</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Quảng Ngãi" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    90 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Mây cụm
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">22°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">22°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Nhiều mây
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">22°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">23°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -622,31 +542,27 @@
                             <div class="col-6 col-md-3">
                                 <article class="forecast">
 
-                                    <div class="location-wheather text-center">
-                                        <div class="card mb-3">
-                                            <a class="text-decoration-none text-light">
-                                                <h3 class="card-city-title">Cà Mau</h3>
-                                                <div class="card-city-body">
-                                                    <img src="https://data.thoitiet.vn/weather/icons/03n@2x.png"
-                                                        alt="Cà Mau" title="Clouds">
-                                                    <div class="precipitation" title="Lượng mưa">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-droplet-fill"
-                                                            viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
-                                                        </svg>
-                                                        78 %
-                                                    </div>
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Vĩnh Long</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/04n@2x.png" alt="Vĩnh Long" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    83 %
                                                 </div>
-                                                <p class="mb-0">
-                                                    Mây rải rác
-                                                </p>
-                                                <div class="card-city-footer">
-                                                    <p title="Hiện tại">25°</p>
-                                                    <p>/</p>
-                                                    <p title="Cảm giác như">26°</p>
-                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Mây cụm
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">22°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">22°</p>
+                                            </div>
 
                                             </a>
                                         </div>
@@ -654,155 +570,174 @@
 
                                 </article>
                             </div>
+                            <div class="col-6 col-md-3">
+                                <article class="forecast">
+
+                                <div class="location-wheather text-center">
+                                    <div class="card mb-3">
+                                        <a class="text-decoration-none text-light">
+                                            <h3 class="card-city-title">Cà Mau</h3>
+                                            <div class="card-city-body">
+                                                <img src="https://data.thoitiet.vn/weather/icons/03n@2x.png" alt="Cà Mau" title="Clouds">
+                                                <div class="precipitation" title="Lượng mưa">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+                                                        <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
+                                                    </svg>
+                                                    78 %
+                                                </div>
+                                            </div>
+                                            <p class="mb-0">
+                                                Mây rải rác
+                                            </p>
+                                            <div class="card-city-footer">
+                                                <p title="Hiện tại">25°</p>
+                                                <p>/</p>
+                                                <p title="Cảm giác như">26°</p>
+                                            </div>
+
+                                            </a>
+                                        </div>
+                                    </div>
+
+                            </article>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 order-0 order-sm-1">
-                        <div class="current-location">
-                            <div class="location-name">
-                                <span class="location-name-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                    </svg>
-                                </span>
-                                <span class="location-name-main">
-                                    <a id="cb-location" class="text-decoration-none text-light">
-                                        {{ $nameLocation }}
-                                    </a>
-                                </span>
+                </div>
+                <div class="col-12 col-md-4 order-0 order-sm-1">
+                    <div class="current-location">
+                        <div class="location-name">
+                            <span class="location-name-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            </span>
+                            <span class="location-name-main">
+                                <a id="cb-location" class="text-decoration-none text-light">
+                                    Hà Nội
+                                </a>
+                            </span>
+                        </div>
+                        <div class="location-data">
+                            <div class="location-auto-refresh">
+                                <span>Đã cập nhật 21 phút trước</span>
                             </div>
-                            <div class="location-data">
-                                <div class="location-auto-refresh">
-                                    <span>Đã cập nhật 21 phút trước</span>
+                            <div class="location-data-summary">
+                                <div class="overview-current">
+                                    <img src="https://data.thoitiet.vn/weather/icons/50n@2x.png" alt="Sương mờ">
+                                    <span id="cb-temp" class="current-temperature">21°</span>
+                                    <div class="unit-group">
+                                        <p>C</p>
+                                        <p title="Thay đổi đơn vị" class="btn-unit-switcher">
+                                            <span>F</span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="location-data-summary">
-                                    <div class="overview-current">
-                                        <img src="https://data.thoitiet.vn/weather/icons/50n@2x.png" alt="Sương mờ">
-                                        <span id="cb-temp" class="current-temperature">{{ $dataCurrent['temp_c'] }}</span>
-                                        <div class="unit-group">
-                                            <p>C</p>
-                                            <p title="Thay đổi đơn vị" class="btn-unit-switcher">
-                                                <span>F</span>
-                                            </p>
+                                <div class="overview-caption">
+                                    <p id="cb-condition" class="overview-caption-item">Sương mờ</p>
+                                    <p id="cb-feeslike" class="overview-caption-item">Cảm giác như 22°.</p>
+                                </div>
+                                <div class="weather-detail mt-2">
+                                    <div class="d-flex">
+                                        <div class="avatar">
+                                            <div class="avatar-img rounded-circle">
+                                                <span class="weather-icon">
+                                                    <i class="bi bi-sun"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Mặt trời mọc/lặn</h6>
+                                        </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <div class="weather-sun">
+                                                <span><i class="bi bi-sunrise"></i>06:32</span>
+                                                <span>
+                                                    <i class="bi bi-sunset"></i>
+                                                    17:47
+                                                </span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="separator-dashed"></div>
+                                        <div class="d-flex">
+                                            <div class="avatar">
+
+                                        </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Thấp/Cao</h6>
+                                        </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <h3 class="text-white op-8 fw-bold">20°/24°</h3>
                                         </div>
                                     </div>
-                                    <div class="overview-caption">
-                                        <p id="cb-condition" class="overview-caption-item">Sương mờ</p>
-                                        <p id="cb-feeslike" class="overview-caption-item">Cảm giác như {{ $dataCurrent['feelslike_c'] }} °C.</p>
+                                    <div class="separator-dashed"></div>
+                                    <div class="d-flex">
+                                        <div class="avatar">
+                                            <div class="avatar-img rounded-circle">
+                                                <span class="weather-icon">
+                                                    <i class="bi bi-droplet"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Độ ẩm</h6>
+                                        </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <h3 id="cb-humidity" class="text-white op-8 fw-bold">94%</h3>
+                                        </div>
                                     </div>
-                                    <div class="weather-detail mt-2">
-                                        <div class="d-flex">
-                                            <div class="avatar">
-                                                <div class="avatar-img rounded-circle">
-                                                    <span class="weather-icon">
-                                                        <i class="bi bi-sun"></i>
-                                                    </span>
-                                                </div>
+                                    <div class="separator-dashed"></div>
+                                    <div class="d-flex">
+                                        <div class="avatar">
+                                            <div class="avatar-img rounded-circle">
+                                                <svg class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8" set="current-conditions" name="pressure" theme="dark" data-testid="Icon" aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                                    <title>Pressure</title>
+                                                    <path d="M8.462 18.293l-.29-.002c-.6-.004-1.043-.007-1.259-.007-1.119 0-1.182-1.015-.34-1.734l.196-.164.508-.425 1.543-1.292c1.014-.846 1.74-1.45 2.073-1.723.735-.601 1.305-.596 2.033.022.387.329.959.805 2.207 1.841a377.936 377.936 0 0 1 2.18 1.816c.796.67.742 1.66-.295 1.66h-2.382v1.77c0 .83-.393 1.223-1.258 1.223h-2.994c-.809 0-1.258-.42-1.258-1.207v-1.773l-.664-.005zm0-12.807l-.29.002c-.6.004-1.043.006-1.259.006-1.119 0-1.182 1.016-.34 1.734l.196.164.508.426 1.543 1.29a348.68 348.68 0 0 0 2.073 1.724c.735.601 1.305.596 2.033-.022.387-.328.959-.805 2.207-1.84a377.937 377.937 0 0 0 2.18-1.817c.796-.67.742-1.659-.295-1.659h-2.382v-1.77c0-.832-.393-1.224-1.258-1.224h-2.994c-.809 0-1.258.42-1.258 1.207V5.48l-.664.005z">
+                                                    </path>
+                                                </svg>
                                             </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Mặt trời mọc/lặn</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <div class="weather-sun">
-                                                    <span><i class="bi bi-sunrise"></i>06:32 / </span>
-                                                    <span>
-                                                        <i class="bi bi-sunset"></i>
-                                                        17:47
-                                                    </span>
+                                        </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Áp suất</h6>
+                                        </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <h3 class="text-white op-8 fw-bold">1012 mb</h3>
+                                        </div>
+                                    </div>
+                                    <div class="separator-dashed"></div>
+                                    <div class="d-flex">
+                                        <div class="avatar">
 
-                                                </div>
+                                        </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Tầm nhìn</h6>
+                                        </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <h3 id="cb-vis" class="text-white op-8 fw-bold">4.4 km</h3>
+                                        </div>
+                                    </div>
+                                    <div class="separator-dashed"></div>
+                                    <div class="d-flex">
+                                        <div class="avatar">
+                                            <div class="avatar-img rounded-circle">
+                                                <svg class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8" set="current-conditions" name="wind" theme="dark" data-testid="Icon" aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                                    <title>Wind</title>
+                                                    <path d="M6 8.67h5.354c1.457 0 2.234-1.158 2.234-2.222S12.687 4.4 11.354 4.4c-.564 0-1.023.208-1.366.488M3 11.67h15.54c1.457 0 2.235-1.158 2.235-2.222S19.873 7.4 18.54 7.4c-.747 0-1.311.365-1.663.78M6 15.4h9.389c1.457 0 2.234 1.159 2.234 2.223 0 1.064-.901 2.048-2.234 2.048a2.153 2.153 0 0 1-1.63-.742" stroke-width="2" stroke="currentColor" stroke-linecap="round" fill="none"></path>
+                                                </svg>
                                             </div>
                                         </div>
-                                        <div class="separator-dashed"></div>
-                                        <div class="d-flex">
-                                            <div class="avatar">
-
-                                            </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Thấp/Cao</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <h3 class="text-white op-8 fw-bold">20°/24°</h3>
-                                            </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Gió</h6>
                                         </div>
-                                        <div class="separator-dashed"></div>
-                                        <div class="d-flex">
-                                            <div class="avatar">
-                                                <div class="avatar-img rounded-circle">
-                                                    <span class="weather-icon">
-                                                        <i class="bi bi-droplet"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Độ ẩm</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <h3 id="cb-humidity" class="text-white op-8 fw-bold">94%</h3>
-                                            </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <h3 id="cb-wind" class="text-white op-8 fw-bold">4.63 km/giờ</h3>
                                         </div>
-                                        <div class="separator-dashed"></div>
-                                        <div class="d-flex">
-                                            <div class="avatar">
-                                                <div class="avatar-img rounded-circle">
-                                                    <svg class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
-                                                        set="current-conditions" name="pressure" theme="dark"
-                                                        data-testid="Icon" aria-hidden="true" role="img"
-                                                        viewBox="0 0 24 24">
-                                                        <title>Pressure</title>
-                                                        <path
-                                                            d="M8.462 18.293l-.29-.002c-.6-.004-1.043-.007-1.259-.007-1.119 0-1.182-1.015-.34-1.734l.196-.164.508-.425 1.543-1.292c1.014-.846 1.74-1.45 2.073-1.723.735-.601 1.305-.596 2.033.022.387.329.959.805 2.207 1.841a377.936 377.936 0 0 1 2.18 1.816c.796.67.742 1.66-.295 1.66h-2.382v1.77c0 .83-.393 1.223-1.258 1.223h-2.994c-.809 0-1.258-.42-1.258-1.207v-1.773l-.664-.005zm0-12.807l-.29.002c-.6.004-1.043.006-1.259.006-1.119 0-1.182 1.016-.34 1.734l.196.164.508.426 1.543 1.29a348.68 348.68 0 0 0 2.073 1.724c.735.601 1.305.596 2.033-.022.387-.328.959-.805 2.207-1.84a377.937 377.937 0 0 0 2.18-1.817c.796-.67.742-1.659-.295-1.659h-2.382v-1.77c0-.832-.393-1.224-1.258-1.224h-2.994c-.809 0-1.258.42-1.258 1.207V5.48l-.664.005z">
-                                                        </path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Áp suất</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <h3 class="text-white op-8 fw-bold">1012 mb</h3>
-                                            </div>
-                                        </div>
-                                        <div class="separator-dashed"></div>
-                                        <div class="d-flex">
-                                            <div class="avatar">
-
-                                            </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Tầm nhìn</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <h3 id="cb-vis" class="text-white op-8 fw-bold">{{ $dataCurrent['vis_km'] }} Km</h3>
-                                            </div>
-                                        </div>
-                                        <div class="separator-dashed"></div>
-                                        <div class="d-flex">
-                                            <div class="avatar">
-                                                <div class="avatar-img rounded-circle">
-                                                    <svg class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
-                                                        set="current-conditions" name="wind" theme="dark"
-                                                        data-testid="Icon" aria-hidden="true" role="img"
-                                                        viewBox="0 0 24 24">
-                                                        <title>Wind</title>
-                                                        <path
-                                                            d="M6 8.67h5.354c1.457 0 2.234-1.158 2.234-2.222S12.687 4.4 11.354 4.4c-.564 0-1.023.208-1.366.488M3 11.67h15.54c1.457 0 2.235-1.158 2.235-2.222S19.873 7.4 18.54 7.4c-.747 0-1.311.365-1.663.78M6 15.4h9.389c1.457 0 2.234 1.159 2.234 2.223 0 1.064-.901 2.048-2.234 2.048a2.153 2.153 0 0 1-1.63-.742"
-                                                            stroke-width="2" stroke="currentColor" stroke-linecap="round"
-                                                            fill="none"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Gió Giật</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <h3 id="cb-wind" class="text-white op-8 fw-bold">{{ round($dataCurrent['gust_kph']) }} km/giờ</h3>
-                                            </div>
-                                        </div>
-                                        <div class="separator-dashed"></div>
-                                        <div class="d-flex">
-                                            <div class="avatar">
+                                    </div>
+                                    <div class="separator-dashed"></div>
+                                    <div class="d-flex">
+                                        <div class="avatar">
 
                                             </div>
                                             <div class="flex-1 pt-1 ml-2">
@@ -816,24 +751,24 @@
                                         <div class="d-flex">
                                             <div class="avatar">
 
-                                            </div>
-                                            <div class="flex-1 pt-1 ml-2">
-                                                <h6 class="fw-bold mb-1">Chỉ số UV</h6>
-                                            </div>
-                                            <div class="d-flex ml-auto align-items-center">
-                                                <h3 id="cb-uv" class="text-white op-8 fw-bold">{{ $dataCurrent['uv'] }}</h3>
-                                            </div>
+                                        </div>
+                                        <div class="flex-1 pt-1 ml-2">
+                                            <h6 class="fw-bold mb-1">Chỉ số UV</h6>
+                                        </div>
+                                        <div class="d-flex ml-auto align-items-center">
+                                            <h3 id="cb-uv" class="text-white op-8 fw-bold">0</h3>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="spin" class=""></div>
                         </div>
+                        <div id="spin" class=""></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </section>
+</section>
 
     <style>
         .owl-nav {
@@ -1057,102 +992,91 @@
             margin-top: 40px;
         }
 
-        .custom-loader {
-            width: 50px;
-            top: 35%;
-            height: 50px;
-            position: absolute;
-            display: grid;
-            animation: s4 4s infinite;
-            right: 40%;
-        }
+    .spinner-7 {
+        width: 50px;
+        aspect-ratio: 1;
+        --_c: radial-gradient(farthest-side, #25b09b 92%, #0000);
+        background: var(--_c) top, var(--_c) left, var(--_c) right, var(--_c) bottom;
+        background-size: 12px 12px;
+        background-repeat: no-repeat;
+        position: absolute;
+        animation: s7 1s infinite;
+        z-index: 1;
+        top: 42%;
+        right: 42%;
+    }
 
-        .custom-loader::before,
-        .custom-loader::after {
-            content: "";
-            grid-area: 1/1;
-            border: 8px solid;
-            border-radius: 50%;
-            border-color: #766DF4 #766DF4 #0000 #0000;
-            mix-blend-mode: darken;
-            animation: s4 1s infinite linear;
+    @keyframes s7 {
+        to {
+            transform: rotate(.5turn)
         }
+    }
 
-        .custom-loader::after {
-            border-color: #0000 #0000 #E4E4ED #E4E4ED;
-            animation-direction: reverse;
-        }
-
-        @keyframes s4 {
-            100% {
-                transform: rotate(1turn)
-            }
-        }
-    </style>
+</style>
 
 @endsection
 @push('after-js')
-    <script>
-        $('.owl-carousel').owlCarousel({
-            margin: 0,
-            nav: true,
-            loop: false,
-            dots: false,
-            autoWidth: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5
-                }
+<script>
+    $('.owl-carousel').owlCarousel({
+        margin: 0
+        , nav: true
+        , loop: false
+        , dots: false
+        , autoWidth: true
+        , responsive: {
+            0: {
+                items: 1
+            }
+            , 600: {
+                items: 3
+            }
+            , 1000: {
+                items: 5
+            }
+        }
+    })
+    var formCity = $('.current-location')
+    $("#dayForecast").hide()
+    $("#day").click(function() {
+        $("#title-forecast h2").removeClass('title-active');
+        $(this).addClass('title-active');
+        $("#hourlyForecast").hide();
+        $("#dayForecast").show();
+    })
+    $("#hourly").click(function() {
+        $("#title-forecast h2").removeClass('title-active');
+        $(this).addClass('title-active');
+        $("#hourlyForecast").show();
+        $("#dayForecast").hide();
+    })
+
+    $(".forecast").click(function() {
+        formCity.css("backgroundColor", "#041d2a78");
+        $('#spin').addClass('spinner-7')
+        setTimeout(() => {
+            formCity.css("backgroundColor", "rgb(64,148,202)");
+            $('#spin').removeClass('spinner-7')
+        }, 1000);
+        var nameForecast = $(this).find('.card-city-title').text()
+        var keySearch = changKeyWordTokeywords(nameForecast)
+        $('#cb-location').text(nameForecast)
+        $.ajax({
+            url: 'http://127.0.0.1:8000/'
+            , type: 'get'
+            , data: {
+                'keySearch': keySearch
+            }
+            , success: function(data) {
+                console.log(data);
+                $('#cb-temp').text(data.current.temp_c + "°")
+                $('#cb-feeslike').text(data.current.feelslike_c + "°C")
+                $('#cb-condition').text(data.current.condition.text)
+                $('#cb-humidity').text(data.current.humidity + "%")
+                $('#cb-vis').text(data.current.vis_km + "Km")
+                $('#cb-wind').text(data.current.wind_kph + "Km/h")
+                $('#cb-uv').text(data.current.uv)
             }
         })
-        var formCity = $('.current-location')
-        $("#dayForecast").hide()
-        $("#day").click(function() {
-            $("#title-forecast h2").removeClass('title-active');
-            $(this).addClass('title-active');
-            $("#hourlyForecast").hide();
-            $("#dayForecast").show();
-        })
-        $("#hourly").click(function() {
-            $("#title-forecast h2").removeClass('title-active');
-            $(this).addClass('title-active');
-            $("#hourlyForecast").show();
-            $("#dayForecast").hide();
-        })
-
-        $(".forecast").click(function() {
-            formCity.css("backgroundColor", "#041d2a78");
-            $('#spin').addClass('custom-loader')
-            setTimeout(() => {
-                formCity.css("backgroundColor", "rgb(64,148,202)");
-                $('#spin').removeClass('custom-loader')
-            }, 1000);
-            var nameForecast = $(this).find('.card-city-title').text()
-            var keySearch = changKeyWordTokeywords(nameForecast)
-            $('#cb-location').text(nameForecast)
-            $.ajax({
-                url: 'http://127.0.0.1:8000/',
-                type: 'get',
-                data: {
-                    'keySearch': keySearch
-                },
-                success: function(data) {
-                    console.log(data);
-                    $('#cb-temp').text(data.current.temp_c + "°")
-                    $('#cb-feeslike').text(data.current.feelslike_c + "°C")
-                    $('#cb-condition').text(data.current.condition.text)
-                    $('#cb-humidity').text(data.current.humidity + "%")
-                    $('#cb-vis').text(data.current.vis_km + "Km")
-                    $('#cb-wind').text(data.current.wind_kph + "Km/h")
-                    $('#cb-uv').text(data.current.uv)
-                }
-            })
 
         })
 
