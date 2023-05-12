@@ -49,13 +49,17 @@ class APIRequest extends ApiClient
         // get prompt
 
         $prompt = " Với thông số sau 
-        Nồng độ CO 847.82μg/m3
-        Nồng độ NO 7.49μg/m3
-        Nồng độ O3 45.42μg/m3
-        Nồng độ SO2 30.28μg/m3
-        Nồng độ PM10 67.56μg/m3
-        Nồng độ NH3 6.71μg/m3
-        Hãy đưa ra các 5 lời khuyên ngắn chính về bảo vệ sức khỏe con người?";
+        Tốc độ gió 16.9Km/h
+        Cảm giác như 30.3°C
+        Mây 0%
+        Lượng mưa 0.1mm
+        Độ ẩm 58%
+        Hướng gió 20°
+        Tầm nhìn 10Km
+        Gió giật 13Km/h
+        Mặt trăng Waxing Gibbous
+        Chỉ số UV 5
+        Hãy đưa ra các lời khuyên về các hoạt động ngoài trời, các loại quần áo nên mặc, các hoạt động ngoài trời?";
 
         header('Content-type: text/event-stream');
         header('Cache-Control: no-cache');
@@ -69,7 +73,7 @@ class APIRequest extends ApiClient
             'presence_penalty' => 0,
             'stream' => true
         ], function ($curl_info, $data) {
-            echo $data . " ";
+            echo $data;
             echo PHP_EOL;
             ob_flush();
             flush();
