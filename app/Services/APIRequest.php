@@ -59,7 +59,7 @@ class APIRequest extends ApiClient
         Gió giật 13Km/h
         Mặt trăng Waxing Gibbous
         Chỉ số UV 5
-        Hãy đưa ra các lời khuyên về các hoạt động ngoài trời, các loại quần áo nên mặc, các hoạt động ngoài trời?";
+        Hãy đưa ra 5 lời khuyên về các hoạt động ngoài trời, các loại quần áo nên mặc, các hoạt động ngoài trời?";
 
         header('Content-type: text/event-stream');
         header('Cache-Control: no-cache');
